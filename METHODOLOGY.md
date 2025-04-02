@@ -1,72 +1,99 @@
-# Methodology Document - Imugene (IMU.AX) Investment Analysis
+# Imugene Website Development Methodology
 
-## Analysis Approach
-This document outlines the methodology used in analyzing Imugene Limited (IMU.AX) as an investment opportunity. The analysis follows a structured approach combining fundamental analysis, technical analysis, and qualitative assessment.
+## Overview
+This document outlines the methodology used to develop and deploy the Imugene Investment Analysis Website. It provides technical details about the development process, tools used, and decisions made during implementation.
 
-## Data Sources
-- ASX market data (Feb 2024 - Apr 2025)
-- Imugene company announcements and presentations
-- Clinical trial results and publications
-- Financial statements and quarterly reports
-- Competitor analysis and market capitalization comparisons
-- Short selling reports and trading pattern data
+## Development Process
 
-## Analysis Components
+### 1. Initial Assessment
+- Analyzed existing repository content and structure
+- Identified visualization issues with incorrect image paths
+- Discovered missing HTML pages referenced in navigation
+- Created a comprehensive todo list to track progress
 
-### 1. Financial Analysis
-- **Cash Position Assessment**: Analysis of current cash holdings and recent capital raises
-- **Burn Rate Calculation**: Quarterly cash outflow analysis to determine runway
-- **Dilution Impact**: Historical and projected share dilution from capital raises
-- **IP Valuation**: Multiple scenario analysis for intellectual property valuation
+### 2. Visualization Fixes
+- Updated image paths in index.html to correctly reference files in the img/ directory
+- Changed direct references (e.g., "cash_flow_projection.png") to include proper path (e.g., "img/cash_flow_projection.png")
+- Fixed references for all visualizations including:
+  - Cash Flow Projection
+  - SWOT Analysis
+  - Share Price Scenarios
+  - Short Interest vs Price
+  - Market Cap Comparison
 
-### 2. Clinical Pipeline Assessment
-- **Trial Progress Evaluation**: Current status of all clinical trials
-- **Success Probability Modeling**: Risk-adjusted valuation based on clinical phase
-- **Regulatory Pathway Analysis**: Timeline projections for potential approvals
+### 3. Missing Pages Creation
+- Created technical_analysis.html with price charts and technical indicators
+- Created clinical_trials.html with pipeline and trial information
+- Created options_trading.html with options strategies
+- Created csl_case_study.html with CSL growth comparison
+- Created catalyst_calendar.html with upcoming events timeline
+- Ensured consistent styling and navigation across all pages
+- Added proper metadata including robots directives
 
-### 3. Market Position Analysis
-- **Competitor Benchmarking**: Comparison with similar ASX-listed biotechs
-- **Market Capitalization Analysis**: Relative valuation metrics excluding outliers
-- **Technology Differentiation Assessment**: Proprietary technology evaluation
+### 4. Documentation
+- Updated README.md with comprehensive project information
+- Created detailed RELEASE_NOTES.md with version information
+- Added restoration instructions for disaster recovery
+- Documented file structure and purpose of each component
+- Provided deployment and maintenance guidelines
 
-### 4. Short Selling Analysis
-- **Short Interest Tracking**: Historical short position data analysis
-- **Price Correlation Study**: Relationship between short interest and price movements
-- **Trading Pattern Identification**: Unusual volume and price action analysis
+### 5. Testing
+- Verified all image paths work correctly
+- Ensured consistent navigation across all pages
+- Checked responsive design for various screen sizes
+- Validated HTML structure and styling
 
-### 5. Technical Analysis
-- **Moving Average Analysis**: 20-day, 50-day, and 200-day moving averages
-- **Support/Resistance Identification**: Key price levels based on historical trading
-- **Volume Profile Assessment**: Trading volume patterns at different price points
+### 6. Deployment
+- Pushed all files to GitHub repository
+- Deployed website to live link for user review
+- Validated all visualizations and pages on live site
 
-### 6. Risk Assessment
-- **SWOT Analysis**: Structured evaluation of strengths, weaknesses, opportunities, and threats
-- **Risk Factor Quantification**: Weighted impact assessment of identified risks
-- **Scenario Probability Modeling**: Multiple outcome scenarios with probability weighting
+## Technical Decisions
 
-## Valuation Methodology
-The valuation employs a risk-adjusted net present value (rNPV) approach, which:
-1. Projects potential revenue streams from each clinical candidate
-2. Applies phase-appropriate success probabilities
-3. Discounts future cash flows using a biotech-appropriate discount rate (15-20%)
-4. Adjusts for cash position and expected dilution
+### File Organization
+- Maintained existing structure with separate directories for CSS and images
+- Kept HTML files in root directory for simplicity
+- Preserved markdown source files for future content updates
 
-## Investment Recommendation Framework
-Recommendations are tailored to different investor profiles:
-- **Aggressive Growth**: Higher risk tolerance, longer time horizon
-- **Value**: Focus on current assets vs. market cap
-- **Balanced/Moderate**: Limited exposure with defined risk parameters
-- **Short-Term Trading**: Technical factors and catalyst-based opportunities
+### Image Handling
+- Used relative paths (img/filename.png) for all image references
+- Maintained original image filenames for clarity
+- Ensured all visualizations are properly sized and formatted
 
-## Limitations and Assumptions
-- Clinical trial success rates based on industry averages for similar indications
-- Commercialization timelines estimated based on standard regulatory pathways
-- Partnership/acquisition valuations derived from comparable transactions
-- Market conditions assumed to remain relatively stable
+### Navigation
+- Implemented consistent sidebar navigation across all pages
+- Used Font Awesome icons for improved visual hierarchy
+- Highlighted active page in navigation for better user orientation
 
-## Website Implementation
-The analysis is presented through a web interface with:
-- Sidebar navigation for easy access to different analysis components
-- Card-based content layout for improved readability
-- Visual data presentation through charts and graphs
-- Responsive design for multi-device accessibility
+### Documentation
+- Created comprehensive documentation for future maintenance
+- Included detailed restoration instructions
+- Provided clear deployment guidelines
+
+## Tools and Technologies
+
+### Languages and Frameworks
+- HTML5 for page structure
+- CSS3 for styling
+- JavaScript for interactive elements
+- Python for conversion scripts
+
+### Development Tools
+- Git for version control
+- GitHub for repository hosting
+- Text editors for HTML/CSS development
+- Python scripts for markdown to HTML conversion
+
+### Deployment
+- GitHub Pages for static site hosting
+- Direct deployment to custom domain
+
+## Future Recommendations
+- Implement interactive charts using D3.js or Chart.js
+- Add dark mode toggle for improved readability
+- Create mobile-optimized version for smartphone users
+- Add PDF export functionality for reports
+- Implement automated data updates for price charts
+
+## Conclusion
+This methodology document provides a comprehensive overview of the development process and technical decisions made during the implementation of the Imugene Investment Analysis Website. It serves as a reference for future maintenance and enhancement of the website.
