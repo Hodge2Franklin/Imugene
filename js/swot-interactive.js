@@ -1,308 +1,312 @@
-// SWOT Analysis Interactive Component
+// SWOT Analysis Interactive JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-  // Check if we're on a page with SWOT analysis
-  const swotContainer = document.getElementById('swot-analysis-container');
-  if (!swotContainer) return;
-  
-  // Initialize the view state
-  let currentView = 'quadrant';
-  
-  // SWOT data structure
-  const swotData = {
-    strengths: [
-      {
-        title: "Proprietary Immunotherapy Technology",
-        description: "Targeting multiple cancer pathways simultaneously with unique mechanisms of action"
-      },
-      {
-        title: "Strong Leadership Team",
-        description: "Industry veterans with proven track record in biotech development and exits"
-      },
-      {
-        title: "Diverse Pipeline",
-        description: "Multiple drug candidates across different technology platforms"
-      },
-      {
-        title: "Positive Early Clinical Data",
-        description: "Encouraging efficacy and safety signals from lead candidates"
-      },
-      {
-        title: "Substantial Cash Position",
-        description: "$100M provides runway through multiple value-creating milestones"
-      },
-      {
-        title: "Improving Sentiment",
-        description: "Recent data and presentations have been well-received by market"
-      }
-    ],
-    weaknesses: [
-      {
-        title: "Significant Cash Burn Rate",
-        description: "$50M annually requires careful cash management"
-      },
-      {
-        title: "History of Dilutive Capital Raises",
-        description: "Previous financing rounds have diluted existing shareholders"
-      },
-      {
-        title: "No Approved Products",
-        description: "Lack of revenue streams creates dependency on capital markets"
-      },
-      {
-        title: "Clinical Trial Dependency",
-        description: "Future value heavily dependent on clinical trial outcomes"
-      },
-      {
-        title: "Management Concerns",
-        description: "Some investors have raised questions about financing practices"
-      },
-      {
-        title: "Sector Valuation Compression",
-        description: "Biotech sector experiencing general valuation pressure"
-      }
-    ],
-    opportunities: [
-      {
-        title: "Positive Clinical Trial Results",
-        description: "Could drive significant revaluation"
-      },
-      {
-        title: "Acquisition Interest",
-        description: "Potential target for larger pharmaceutical companies"
-      },
-      {
-        title: "Partnership Deals",
-        description: "Could provide non-dilutive funding"
-      },
-      {
-        title: "Multiple Catalysts",
-        description: "Expected in next 12-24 months"
-      },
-      {
-        title: "Increasing Interest in Immunotherapies",
-        description: "Growing market for novel cancer treatments"
-      },
-      {
-        title: "Expanded Indications",
-        description: "Could open larger market opportunities"
-      }
-    ],
-    threats: [
-      {
-        title: "Market Skepticism",
-        description: "About commercial viability of novel therapies"
-      },
-      {
-        title: "Competitive Landscape",
-        description: "Well-funded rivals pursuing similar approaches"
-      },
-      {
-        title: "Clinical Trial Failures",
-        description: "Could severely impact valuation"
-      },
-      {
-        title: "Dilutive Financing",
-        description: "Potential for further share dilution"
-      },
-      {
-        title: "Regulatory Hurdles",
-        description: "Approval delays could impact timeline"
-      },
-      {
-        title: "Market Sentiment",
-        description: "Toward small-cap biotech remains cautious"
-      }
-    ]
-  };
-  
-  // Create the UI elements
-  function createSwotUI() {
-    // Create header
-    const header = document.createElement('h1');
-    header.textContent = 'SWOT Analysis';
-    swotContainer.appendChild(header);
+    // Get all SWOT analysis components
+    const swotComponents = document.querySelectorAll('.swot-analysis-component');
     
-    // Create description
-    const description = document.createElement('p');
-    description.textContent = 'This interactive SWOT analysis highlights Imugene\'s key strategic position in the biotech market:';
-    swotContainer.appendChild(description);
-    
-    // Create view selector buttons
-    const buttonContainer = document.createElement('div');
-    buttonContainer.className = 'swot-buttons';
-    buttonContainer.innerHTML = `
-      <button id="quadrant-view" class="active">Quadrant View</button>
-      <button id="radar-chart">Radar Chart</button>
-      <button id="bar-chart">Bar Chart</button>
-      <button id="competitor-comparison">Competitor Comparison</button>
-    `;
-    swotContainer.appendChild(buttonContainer);
-    
-    // Create content container
-    const contentContainer = document.createElement('div');
-    contentContainer.id = 'swot-content';
-    swotContainer.appendChild(contentContainer);
-    
-    // Add event listeners to buttons
-    document.getElementById('quadrant-view').addEventListener('click', () => {
-      setActiveButton('quadrant-view');
-      renderQuadrantView();
+    swotComponents.forEach(component => {
+        const tabs = component.querySelectorAll('.swot-tab');
+        const views = component.querySelectorAll('.swot-view');
+        
+        // Tab switching functionality
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs and views
+                tabs.forEach(t => t.classList.remove('active'));
+                views.forEach(v => v.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding view
+                const viewType = this.getAttribute('data-view');
+                component.querySelector(`.${viewType}-view`).classList.add('active');
+            });
+        });
+        
+        // Chart controls functionality
+        const chartControls = component.querySelectorAll('.chart-control');
+        chartControls.forEach(control => {
+            control.addEventListener('click', function() {
+                chartControls.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                
+                // In a real implementation, this would update the chart data
+                // For now, we'll just simulate a change
+                const factor = this.getAttribute('data-factor');
+                console.log(`Changing chart to show ${factor}`);
+                
+                // Here you would update the chart based on the selected factor
+            });
+        });
     });
     
-    document.getElementById('radar-chart').addEventListener('click', () => {
-      setActiveButton('radar-chart');
-      renderRadarChart();
-    });
-    
-    document.getElementById('bar-chart').addEventListener('click', () => {
-      setActiveButton('bar-chart');
-      renderBarChart();
-    });
-    
-    document.getElementById('competitor-comparison').addEventListener('click', () => {
-      setActiveButton('competitor-comparison');
-      renderCompetitorComparison();
-    });
-    
-    // Initial render
-    renderQuadrantView();
-  }
-  
-  // Helper function to set active button
-  function setActiveButton(buttonId) {
-    document.querySelectorAll('.swot-buttons button').forEach(button => {
-      button.classList.remove('active');
-    });
-    document.getElementById(buttonId).classList.add('active');
-  }
-  
-  // Render quadrant view
-  function renderQuadrantView() {
-    currentView = 'quadrant';
-    const contentContainer = document.getElementById('swot-content');
-    
-    let html = `
-      <div class="swot-quadrant">
-        <div class="swot-row">
-          <div class="swot-cell strengths">
-            <h3>Strengths</h3>
-            <ul>
-    `;
-    
-    swotData.strengths.forEach(item => {
-      html += `
-        <li>
-          <strong>${item.title}</strong>
-          <p>${item.description}</p>
-        </li>
-      `;
-    });
-    
-    html += `
-            </ul>
-          </div>
-          <div class="swot-cell weaknesses">
-            <h3>Weaknesses</h3>
-            <ul>
-    `;
-    
-    swotData.weaknesses.forEach(item => {
-      html += `
-        <li>
-          <strong>${item.title}</strong>
-          <p>${item.description}</p>
-        </li>
-      `;
-    });
-    
-    html += `
-            </ul>
-          </div>
-        </div>
-        <div class="swot-row">
-          <div class="swot-cell opportunities">
-            <h3>Opportunities</h3>
-            <ul>
-    `;
-    
-    swotData.opportunities.forEach(item => {
-      html += `
-        <li>
-          <strong>${item.title}</strong>
-          <p>${item.description}</p>
-        </li>
-      `;
-    });
-    
-    html += `
-            </ul>
-          </div>
-          <div class="swot-cell threats">
-            <h3>Threats</h3>
-            <ul>
-    `;
-    
-    swotData.threats.forEach(item => {
-      html += `
-        <li>
-          <strong>${item.title}</strong>
-          <p>${item.description}</p>
-        </li>
-      `;
-    });
-    
-    html += `
-            </ul>
-          </div>
-        </div>
-      </div>
-    `;
-    
-    contentContainer.innerHTML = html;
-  }
-  
-  // Render radar chart (placeholder - would use a charting library in production)
-  function renderRadarChart() {
-    currentView = 'radar';
-    const contentContainer = document.getElementById('swot-content');
-    
-    contentContainer.innerHTML = `
-      <div class="chart-container">
-        <p>Radar chart visualization would be implemented here using a charting library like Chart.js.</p>
-        <p>This would show the relative strengths of each SWOT category in a radar/spider chart format.</p>
-        <img src="img/swot_analysis.png" alt="SWOT Analysis" class="placeholder-image">
-      </div>
-    `;
-  }
-  
-  // Render bar chart (placeholder - would use a charting library in production)
-  function renderBarChart() {
-    currentView = 'bar';
-    const contentContainer = document.getElementById('swot-content');
-    
-    contentContainer.innerHTML = `
-      <div class="chart-container">
-        <p>Bar chart visualization would be implemented here using a charting library like Chart.js.</p>
-        <p>This would show the count and relative importance of items in each SWOT category.</p>
-        <img src="img/swot_analysis.png" alt="SWOT Analysis" class="placeholder-image">
-      </div>
-    `;
-  }
-  
-  // Render competitor comparison (placeholder)
-  function renderCompetitorComparison() {
-    currentView = 'competitor';
-    const contentContainer = document.getElementById('swot-content');
-    
-    contentContainer.innerHTML = `
-      <div class="comparison-container">
-        <p>Competitor comparison would be implemented here, showing how Imugene's SWOT profile compares to key competitors.</p>
-        <p>This would include a side-by-side comparison of strengths and weaknesses relative to peers.</p>
-        <img src="img/market_cap_comparison_ex_csl.png" alt="Market Cap Comparison" class="placeholder-image">
-      </div>
-    `;
-  }
-  
-  // Initialize the component
-  createSwotUI();
+    // Initialize SWOT Analysis if not already present
+    initializeSWOTAnalysis();
 });
+
+function initializeSWOTAnalysis() {
+    // Check if we need to create the SWOT analysis component
+    if (!document.querySelector('.swot-analysis-component')) {
+        const swotContainer = document.getElementById('swot-analysis-container');
+        if (swotContainer) {
+            swotContainer.innerHTML = createSWOTAnalysisHTML();
+            
+            // Initialize the component after creating it
+            const swotComponents = document.querySelectorAll('.swot-analysis-component');
+            swotComponents.forEach(component => {
+                const tabs = component.querySelectorAll('.swot-tab');
+                const views = component.querySelectorAll('.swot-view');
+                
+                // Tab switching functionality
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        // Remove active class from all tabs and views
+                        tabs.forEach(t => t.classList.remove('active'));
+                        views.forEach(v => v.classList.remove('active'));
+                        
+                        // Add active class to clicked tab
+                        this.classList.add('active');
+                        
+                        // Show corresponding view
+                        const viewType = this.getAttribute('data-view');
+                        component.querySelector(`.${viewType}-view`).classList.add('active');
+                    });
+                });
+            });
+        }
+    }
+}
+
+function createSWOTAnalysisHTML() {
+    return `
+    <div class="swot-analysis-component">
+        <h2>SWOT Analysis</h2>
+        <p>This interactive SWOT analysis highlights Imugene's key strategic position in the biotech market:</p>
+        
+        <div class="swot-tabs">
+            <div class="swot-tab active" data-view="quadrant">Quadrant View</div>
+            <div class="swot-tab" data-view="radar">Radar Chart</div>
+            <div class="swot-tab" data-view="bar">Bar Chart</div>
+            <div class="swot-tab" data-view="comparison">Competitor Comparison</div>
+        </div>
+        
+        <!-- Quadrant View -->
+        <div class="swot-view quadrant-view active">
+            <div class="swot-grid">
+                <div class="swot-quadrant strengths-quadrant">
+                    <h3>Strengths</h3>
+                    <ul>
+                        <li>
+                            <strong>Proprietary Immunotherapy Technology</strong>
+                            Targeting multiple cancer pathways simultaneously with unique mechanisms of action
+                        </li>
+                        <li>
+                            <strong>Strong Leadership Team</strong>
+                            Industry veterans with proven track record in biotech development and exits
+                        </li>
+                        <li>
+                            <strong>Diverse Pipeline</strong>
+                            Multiple drug candidates across different technology platforms
+                        </li>
+                        <li>
+                            <strong>Positive Early Clinical Data</strong>
+                            Encouraging efficacy and safety signals from lead candidates
+                        </li>
+                        <li>
+                            <strong>Substantial Cash Position</strong>
+                            $100M provides runway through multiple value-creating milestones
+                        </li>
+                        <li>
+                            <strong>Improving Sentiment</strong>
+                            Recent data and presentations have been well-received by market
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="swot-quadrant weaknesses-quadrant">
+                    <h3>Weaknesses</h3>
+                    <ul>
+                        <li>
+                            <strong>Significant Cash Burn Rate</strong>
+                            $50M annually requires careful cash management
+                        </li>
+                        <li>
+                            <strong>History of Dilutive Capital Raises</strong>
+                            Previous financing rounds have diluted existing shareholders
+                        </li>
+                        <li>
+                            <strong>No Approved Products</strong>
+                            Lack of revenue streams creates dependency on capital markets
+                        </li>
+                        <li>
+                            <strong>Clinical Trial Dependency</strong>
+                            Future value heavily dependent on clinical trial outcomes
+                        </li>
+                        <li>
+                            <strong>Management Concerns</strong>
+                            Some investors have raised questions about financing practices
+                        </li>
+                        <li>
+                            <strong>Sector Valuation Compression</strong>
+                            Biotech sector experiencing general valuation pressure
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="swot-quadrant opportunities-quadrant">
+                    <h3>Opportunities</h3>
+                    <ul>
+                        <li>
+                            <strong>Positive Clinical Trial Results</strong>
+                            Could drive significant revaluation
+                        </li>
+                        <li>
+                            <strong>Acquisition Interest</strong>
+                            Potential target for larger pharmaceutical companies
+                        </li>
+                        <li>
+                            <strong>Partnership Deals</strong>
+                            Could provide non-dilutive funding
+                        </li>
+                        <li>
+                            <strong>Multiple Catalysts</strong>
+                            Expected in next 12-24 months
+                        </li>
+                        <li>
+                            <strong>Increasing Interest in Immunotherapies</strong>
+                            Growing market for novel cancer treatments
+                        </li>
+                        <li>
+                            <strong>Expanded Indications</strong>
+                            Could open larger market opportunities
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="swot-quadrant threats-quadrant">
+                    <h3>Threats</h3>
+                    <ul>
+                        <li>
+                            <strong>Market Skepticism</strong>
+                            About commercial viability of novel therapies
+                        </li>
+                        <li>
+                            <strong>Competitive Landscape</strong>
+                            Well-funded rivals pursuing similar approaches
+                        </li>
+                        <li>
+                            <strong>Clinical Trial Failures</strong>
+                            Could severely impact valuation
+                        </li>
+                        <li>
+                            <strong>Dilutive Financing</strong>
+                            Potential for further share dilution
+                        </li>
+                        <li>
+                            <strong>Regulatory Hurdles</strong>
+                            Approval delays could impact timeline
+                        </li>
+                        <li>
+                            <strong>Market Sentiment</strong>
+                            Toward small-cap biotech remains cautious
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Radar Chart View -->
+        <div class="swot-view radar-view">
+            <div class="radar-chart-container">
+                <div class="radar-chart">
+                    <p>Radar chart visualization would be implemented here using a charting library like Chart.js.</p>
+                    <p>This would show the relative strengths of each SWOT category in a radar/spider chart format.</p>
+                </div>
+                <div class="chart-controls">
+                    <div class="chart-control active" data-factor="overall">Overall</div>
+                    <div class="chart-control" data-factor="technology">Technology</div>
+                    <div class="chart-control" data-factor="financial">Financial</div>
+                    <div class="chart-control" data-factor="market">Market</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bar Chart View -->
+        <div class="swot-view bar-view">
+            <div class="radar-chart-container">
+                <div class="radar-chart">
+                    <p>Bar chart visualization would be implemented here using a charting library like Chart.js.</p>
+                    <p>This would show the count and relative importance of items in each SWOT category.</p>
+                </div>
+                <div class="chart-controls">
+                    <div class="chart-control active" data-factor="count">Count</div>
+                    <div class="chart-control" data-factor="impact">Impact</div>
+                    <div class="chart-control" data-factor="probability">Probability</div>
+                    <div class="chart-control" data-factor="timeline">Timeline</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Competitor Comparison View -->
+        <div class="swot-view comparison-view">
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Imugene</th>
+                            <th>Competitor A</th>
+                            <th>Competitor B</th>
+                            <th>Competitor C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Technology Platform</td>
+                            <td class="highlight-positive">Multiple platforms</td>
+                            <td>Single platform</td>
+                            <td>Dual platforms</td>
+                            <td>Single platform</td>
+                        </tr>
+                        <tr>
+                            <td>Cash Position</td>
+                            <td class="highlight-positive">$100M</td>
+                            <td>$45M</td>
+                            <td class="highlight-positive">$120M</td>
+                            <td>$30M</td>
+                        </tr>
+                        <tr>
+                            <td>Burn Rate</td>
+                            <td class="highlight-negative">$50M/year</td>
+                            <td>$20M/year</td>
+                            <td class="highlight-negative">$60M/year</td>
+                            <td>$15M/year</td>
+                        </tr>
+                        <tr>
+                            <td>Clinical Stage</td>
+                            <td>Phase 1/2</td>
+                            <td>Phase 1</td>
+                            <td class="highlight-positive">Phase 2/3</td>
+                            <td>Phase 1</td>
+                        </tr>
+                        <tr>
+                            <td>Market Cap</td>
+                            <td>$220M</td>
+                            <td>$150M</td>
+                            <td class="highlight-positive">$450M</td>
+                            <td>$100M</td>
+                        </tr>
+                        <tr>
+                            <td>Partnerships</td>
+                            <td>Limited</td>
+                            <td>None</td>
+                            <td class="highlight-positive">Multiple</td>
+                            <td>One major</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    `;
+}
