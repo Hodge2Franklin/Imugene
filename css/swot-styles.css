@@ -1,0 +1,116 @@
+.swot-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.swot-buttons button {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.swot-buttons button.active {
+  background-color: #2c3e50;
+  color: white;
+  border-color: #2c3e50;
+}
+
+.swot-buttons button:hover:not(.active) {
+  background-color: #eee;
+}
+
+.swot-quadrant {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.swot-row {
+  display: flex;
+  gap: 20px;
+}
+
+.swot-cell {
+  flex: 1;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.swot-cell h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.swot-cell ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.swot-cell li {
+  margin-bottom: 15px;
+}
+
+.swot-cell li strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.swot-cell li p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.strengths {
+  background-color: rgba(46, 204, 113, 0.1);
+  border-left: 5px solid #2ecc71;
+}
+
+.weaknesses {
+  background-color: rgba(231, 76, 60, 0.1);
+  border-left: 5px solid #e74c3c;
+}
+
+.opportunities {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-left: 5px solid #3498db;
+}
+
+.threats {
+  background-color: rgba(241, 196, 15, 0.1);
+  border-left: 5px solid #f1c40f;
+}
+
+.chart-container, .comparison-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.placeholder-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .swot-row {
+    flex-direction: column;
+  }
+  
+  .swot-buttons {
+    flex-wrap: wrap;
+  }
+}
