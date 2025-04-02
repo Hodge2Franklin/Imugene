@@ -5,9 +5,193 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Visualizations - Imugene (IMU.AX) Stock Analysis</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/interactive.css">
-    <link rel="stylesheet" href="css/swot-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* SWOT Analysis Component Styles */
+        .swot-analysis-component {
+            margin-bottom: 40px;
+            font-family: Arial, sans-serif;
+        }
+
+        .swot-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .swot-tab {
+            padding: 12px 20px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .swot-tab:hover {
+            background: #e9e9e9;
+        }
+
+        .swot-tab.active {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        /* Quadrant View Styles */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .swot-quadrant {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .strengths-quadrant {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 5px solid #2ecc71;
+        }
+
+        .weaknesses-quadrant {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-left: 5px solid #e74c3c;
+        }
+
+        .opportunities-quadrant {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 5px solid #3498db;
+        }
+
+        .threats-quadrant {
+            background-color: rgba(241, 196, 15, 0.1);
+            border-left: 5px solid #f1c40f;
+        }
+
+        .swot-quadrant h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .swot-quadrant ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .swot-quadrant li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .swot-quadrant strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* View Styles */
+        .swot-view {
+            display: none;
+        }
+
+        .swot-view.active {
+            display: block;
+        }
+
+        /* Radar Chart View Styles */
+        .radar-chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .radar-chart {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+
+        .chart-controls {
+            display: flex;
+            justify-content: center;
+        }
+
+        .chart-control {
+            padding: 8px 15px;
+            margin: 0 5px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .chart-control.active {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        /* Comparison Table Styles */
+        .comparison-table-container {
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .highlight-positive {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .highlight-negative {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .swot-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .swot-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .swot-tab {
+                flex: 1 0 50%;
+                text-align: center;
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -101,7 +285,245 @@
 
         <section>
             <h2>SWOT Analysis</h2>
-            <div id="swot-analysis-container"></div>
+            <div class="swot-analysis-component">
+                <p>This interactive SWOT analysis highlights Imugene's key strategic position in the biotech market:</p>
+                
+                <div class="swot-tabs">
+                    <div class="swot-tab active" data-view="quadrant">Quadrant View</div>
+                    <div class="swot-tab" data-view="radar">Radar Chart</div>
+                    <div class="swot-tab" data-view="bar">Bar Chart</div>
+                    <div class="swot-tab" data-view="comparison">Competitor Comparison</div>
+                </div>
+                
+                <!-- Quadrant View -->
+                <div class="swot-view quadrant-view active">
+                    <div class="swot-grid">
+                        <div class="swot-quadrant strengths-quadrant">
+                            <h3>Strengths</h3>
+                            <ul>
+                                <li>
+                                    <strong>Proprietary Immunotherapy Technology</strong>
+                                    Targeting multiple cancer pathways simultaneously with unique mechanisms of action
+                                </li>
+                                <li>
+                                    <strong>Strong Leadership Team</strong>
+                                    Industry veterans with proven track record in biotech development and exits
+                                </li>
+                                <li>
+                                    <strong>Diverse Pipeline</strong>
+                                    Multiple drug candidates across different technology platforms
+                                </li>
+                                <li>
+                                    <strong>Positive Early Clinical Data</strong>
+                                    Encouraging efficacy and safety signals from lead candidates
+                                </li>
+                                <li>
+                                    <strong>Substantial Cash Position</strong>
+                                    $100M provides runway through multiple value-creating milestones
+                                </li>
+                                <li>
+                                    <strong>Improving Sentiment</strong>
+                                    Recent data and presentations have been well-received by market
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="swot-quadrant weaknesses-quadrant">
+                            <h3>Weaknesses</h3>
+                            <ul>
+                                <li>
+                                    <strong>Significant Cash Burn Rate</strong>
+                                    $50M annually requires careful cash management
+                                </li>
+                                <li>
+                                    <strong>History of Dilutive Capital Raises</strong>
+                                    Previous financing rounds have diluted existing shareholders
+                                </li>
+                                <li>
+                                    <strong>No Approved Products</strong>
+                                    Lack of revenue streams creates dependency on capital markets
+                                </li>
+                                <li>
+                                    <strong>Clinical Trial Dependency</strong>
+                                    Future value heavily dependent on clinical trial outcomes
+                                </li>
+                                <li>
+                                    <strong>Management Concerns</strong>
+                                    Some investors have raised questions about financing practices
+                                </li>
+                                <li>
+                                    <strong>Sector Valuation Compression</strong>
+                                    Biotech sector experiencing general valuation pressure
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="swot-quadrant opportunities-quadrant">
+                            <h3>Opportunities</h3>
+                            <ul>
+                                <li>
+                                    <strong>Positive Clinical Trial Results</strong>
+                                    Could drive significant revaluation
+                                </li>
+                                <li>
+                                    <strong>Acquisition Interest</strong>
+                                    Potential target for larger pharmaceutical companies
+                                </li>
+                                <li>
+                                    <strong>Partnership Deals</strong>
+                                    Could provide non-dilutive funding
+                                </li>
+                                <li>
+                                    <strong>Multiple Catalysts</strong>
+                                    Expected in next 12-24 months
+                                </li>
+                                <li>
+                                    <strong>Increasing Interest in Immunotherapies</strong>
+                                    Growing market for novel cancer treatments
+                                </li>
+                                <li>
+                                    <strong>Expanded Indications</strong>
+                                    Could open larger market opportunities
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="swot-quadrant threats-quadrant">
+                            <h3>Threats</h3>
+                            <ul>
+                                <li>
+                                    <strong>Market Skepticism</strong>
+                                    About commercial viability of novel therapies
+                                </li>
+                                <li>
+                                    <strong>Competitive Landscape</strong>
+                                    Well-funded rivals pursuing similar approaches
+                                </li>
+                                <li>
+                                    <strong>Clinical Trial Failures</strong>
+                                    Could severely impact valuation
+                                </li>
+                                <li>
+                                    <strong>Dilutive Financing</strong>
+                                    Potential for further share dilution
+                                </li>
+                                <li>
+                                    <strong>Regulatory Hurdles</strong>
+                                    Approval delays could impact timeline
+                                </li>
+                                <li>
+                                    <strong>Market Sentiment</strong>
+                                    Toward small-cap biotech remains cautious
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Radar Chart View -->
+                <div class="swot-view radar-view">
+                    <div class="radar-chart-container">
+                        <div class="radar-chart">
+                            <p>Radar chart visualization would be implemented here using a charting library like Chart.js.</p>
+                            <p>This would show the relative strengths of each SWOT category in a radar/spider chart format.</p>
+                        </div>
+                        <div class="chart-controls">
+                            <div class="chart-control active" data-factor="overall">Overall</div>
+                            <div class="chart-control" data-factor="technology">Technology</div>
+                            <div class="chart-control" data-factor="financial">Financial</div>
+                            <div class="chart-control" data-factor="market">Market</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bar Chart View -->
+                <div class="swot-view bar-view">
+                    <div class="radar-chart-container">
+                        <div class="radar-chart">
+                            <p>Bar chart visualization would be implemented here using a charting library like Chart.js.</p>
+                            <p>This would show the count and relative importance of items in each SWOT category.</p>
+                        </div>
+                        <div class="chart-controls">
+                            <div class="chart-control active" data-factor="count">Count</div>
+                            <div class="chart-control" data-factor="impact">Impact</div>
+                            <div class="chart-control" data-factor="probability">Probability</div>
+                            <div class="chart-control" data-factor="timeline">Timeline</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Competitor Comparison View -->
+                <div class="swot-view comparison-view">
+                    <div class="comparison-table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Imugene</th>
+                                    <th>Competitor A</th>
+                                    <th>Competitor B</th>
+                                    <th>Competitor C</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Technology Platform</td>
+                                    <td class="highlight-positive">Multiple platforms</td>
+                                    <td>Single platform</td>
+                                    <td>Dual platforms</td>
+                                    <td>Single platform</td>
+                                </tr>
+                                <tr>
+                                    <td>Cash Position</td>
+                                    <td class="highlight-positive">$100M</td>
+                                    <td>$45M</td>
+                                    <td class="highlight-positive">$120M</td>
+                                    <td>$30M</td>
+                                </tr>
+                                <tr>
+                                    <td>Burn Rate</td>
+                                    <td class="highlight-negative">$50M/year</td>
+                                    <td>$20M/year</td>
+                                    <td class="highlight-negative">$60M/year</td>
+                                    <td>$15M/year</td>
+                                </tr>
+                                <tr>
+                                    <td>Clinical Stage</td>
+                                    <td>Phase 1/2</td>
+                                    <td>Phase 1</td>
+                                    <td class="highlight-positive">Phase 2/3</td>
+                                    <td>Phase 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Market Cap</td>
+                                    <td>$220M</td>
+                                    <td>$150M</td>
+                                    <td class="highlight-positive">$450M</td>
+                                    <td>$100M</td>
+                                </tr>
+                                <tr>
+                                    <td>Partnerships</td>
+                                    <td>Limited</td>
+                                    <td>None</td>
+                                    <td class="highlight-positive">Multiple</td>
+                                    <td>One major</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="analysis-implications">
+                <h3>Strategic Implications</h3>
+                <p>Based on this SWOT analysis, several key strategic implications emerge for Imugene:</p>
+                <ul>
+                    <li><strong>Prioritize Azer-cel Development:</strong> As the most advanced and valuable asset, ensuring successful progression of Azer-cel through clinical trials should be the primary focus</li>
+                    <li><strong>Pursue Partnership Opportunities:</strong> Actively seek pharmaceutical partnerships to provide validation and non-dilutive funding</li>
+                    <li><strong>Optimize Cash Runway:</strong> Carefully manage burn rate to extend runway through key value-creating milestones</li>
+                    <li><strong>Enhance Investor Communication:</strong> Improve transparency and frequency of updates to address market skepticism</li>
+                </ul>
+            </div>
         </section>
 
         <section>
@@ -184,7 +606,144 @@
         </footer>
     </div>
 
-    <script src="js/main.js"></script>
-    <script src="js/swot-interactive.js"></script>
+    <script>
+        // SWOT Analysis Component JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all SWOT analysis components
+            const swotComponents = document.querySelectorAll('.swot-analysis-component');
+            
+            swotComponents.forEach(component => {
+                const tabs = component.querySelectorAll('.swot-tab');
+                const views = component.querySelectorAll('.swot-view');
+                
+                // Tab switching functionality
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        // Remove active class from all tabs and views
+                        tabs.forEach(t => t.classList.remove('active'));
+                        views.forEach(v => v.classList.remove('active'));
+                        
+                        // Add active class to clicked tab
+                        this.classList.add('active');
+                        
+                        // Show corresponding view
+                        const viewType = this.getAttribute('data-view');
+                        component.querySelector(`.${viewType}-view`).classList.add('active');
+                    });
+                });
+                
+                // Chart controls functionality
+                const chartControls = component.querySelectorAll('.chart-control');
+                chartControls.forEach(control => {
+                    control.addEventListener('click', function() {
+                        chartControls.forEach(c => c.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // In a real implementation, this would update the chart data
+                        // For now, we'll just simulate a change
+                        const factor = this.getAttribute('data-factor');
+                        console.log(`Changing chart to show ${factor}`);
+                        
+                        // Here you would update the chart based on the selected factor
+                    });
+                });
+            });
+            
+            // Timeframe dropdown functionality
+            const timeframeButton = document.querySelector('.btn-info');
+            if (timeframeButton) {
+                timeframeButton.addEventListener('click', function() {
+                    // Create dropdown if it doesn't exist
+                    let dropdown = document.querySelector('.timeframe-dropdown');
+                    if (!dropdown) {
+                        dropdown = document.createElement('div');
+                        dropdown.className = 'timeframe-dropdown';
+                        dropdown.style.position = 'absolute';
+                        dropdown.style.backgroundColor = 'white';
+                        dropdown.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                        dropdown.style.borderRadius = '4px';
+                        dropdown.style.zIndex = '1000';
+                        dropdown.style.display = 'none';
+                        
+                        const options = ['This week', 'This month', '3 months', '6 months', '1 year', 'All time'];
+                        options.forEach(option => {
+                            const item = document.createElement('div');
+                            item.textContent = option;
+                            item.style.padding = '10px 15px';
+                            item.style.cursor = 'pointer';
+                            item.addEventListener('mouseover', function() {
+                                this.style.backgroundColor = '#f5f5f5';
+                            });
+                            item.addEventListener('mouseout', function() {
+                                this.style.backgroundColor = 'white';
+                            });
+                            item.addEventListener('click', function() {
+                                timeframeButton.textContent = option;
+                                dropdown.style.display = 'none';
+                                
+                                // Show notification
+                                const notification = document.createElement('div');
+                                notification.textContent = `Timeframe changed to ${option}`;
+                                notification.style.position = 'fixed';
+                                notification.style.top = '20px';
+                                notification.style.right = '20px';
+                                notification.style.backgroundColor = '#2c3e50';
+                                notification.style.color = 'white';
+                                notification.style.padding = '10px 20px';
+                                notification.style.borderRadius = '4px';
+                                notification.style.zIndex = '2000';
+                                document.body.appendChild(notification);
+                                
+                                setTimeout(() => {
+                                    notification.style.opacity = '0';
+                                    notification.style.transition = 'opacity 0.5s ease';
+                                    setTimeout(() => {
+                                        document.body.removeChild(notification);
+                                    }, 500);
+                                }, 3000);
+                            });
+                            dropdown.appendChild(item);
+                        });
+                        
+                        document.body.appendChild(dropdown);
+                    }
+                    
+                    // Position dropdown
+                    const rect = timeframeButton.getBoundingClientRect();
+                    dropdown.style.top = `${rect.bottom + window.scrollY}px`;
+                    dropdown.style.left = `${rect.left + window.scrollX}px`;
+                    
+                    // Toggle display
+                    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+                    
+                    // Close dropdown when clicking outside
+                    const closeDropdown = function(e) {
+                        if (!dropdown.contains(e.target) && e.target !== timeframeButton) {
+                            dropdown.style.display = 'none';
+                            document.removeEventListener('click', closeDropdown);
+                        }
+                    };
+                    
+                    document.addEventListener('click', closeDropdown);
+                });
+            }
+            
+            // Share button functionality
+            const shareButton = document.querySelector('.btn-primary');
+            if (shareButton) {
+                shareButton.addEventListener('click', function() {
+                    alert('Share functionality would be implemented here. This would allow sharing the analysis via email, social media, or generating a shareable link.');
+                });
+            }
+            
+            // Export button functionality
+            const exportButton = document.querySelector('.btn-success');
+            if (exportButton) {
+                exportButton.addEventListener('click', function() {
+                    alert('Export functionality would be implemented here. This would allow exporting the analysis as PDF, Excel, or other formats.');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
