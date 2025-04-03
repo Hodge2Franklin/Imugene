@@ -1,0 +1,617 @@
+# Technical Analysis Storytelling Framework
+
+## Overview
+This document outlines the storytelling framework for the enhanced Technical Analysis section. The goal is to create a narrative structure that guides users through Imugene's technical performance, making complex technical analysis concepts accessible and engaging.
+
+## Narrative Structure
+
+### 1. Introduction: Setting the Stage
+
+**Title: "Imugene's Technical Journey"**
+
+Begin with a high-level overview that introduces users to the purpose of technical analysis and its relevance to Imugene's stock performance. This section will:
+
+- Explain what technical analysis is and why it matters for biotech stocks
+- Highlight the key technical indicators being used
+- Set expectations for what users will learn from this analysis
+
+```html
+<div class="intro-section">
+  <h2 class="section-title">Imugene's Technical Journey</h2>
+  <p class="intro-text">
+    Technical analysis helps us understand market sentiment and potential price movements based on historical trading patterns. For biotech companies like Imugene, technical analysis can reveal how the market is responding to clinical developments and company announcements.
+  </p>
+  <p class="intro-text">
+    This interactive analysis will guide you through Imugene's price action, volume trends, and market positioning to help you make more informed investment decisions.
+  </p>
+  
+  <div class="key-metrics-container">
+    <div class="key-metric">
+      <div class="metric-title">Current Price</div>
+      <div class="metric-value">$0.030</div>
+      <div class="metric-change negative">-5.2% (1M)</div>
+    </div>
+    <div class="key-metric">
+      <div class="metric-title">Technical Trend</div>
+      <div class="metric-value">Bearish</div>
+      <div class="metric-subtext">Below all major MAs</div>
+    </div>
+    <div class="key-metric">
+      <div class="metric-title">Key Support</div>
+      <div class="metric-value">$0.030</div>
+      <div class="metric-subtext">Testing now</div>
+    </div>
+    <div class="key-metric">
+      <div class="metric-title">Key Resistance</div>
+      <div class="metric-value">$0.047</div>
+      <div class="metric-subtext">Recent high</div>
+    </div>
+  </div>
+</div>
+```
+
+### 2. Price Action Analysis: The Main Character
+
+**Title: "Price Action: The Story So Far"**
+
+This section presents the interactive price chart as the main character of our story, showing its journey through different market conditions:
+
+- Interactive candlestick chart with moving averages
+- Highlighted support and resistance levels
+- Key event annotations that affected the price
+- Pattern recognition with educational explanations
+
+```html
+<div class="price-action-section">
+  <h2 class="section-title">Price Action: The Story So Far</h2>
+  <p class="section-intro">
+    Imugene's share price tells a story of market sentiment and investor expectations. The interactive chart below reveals key patterns and events that have shaped its recent performance.
+  </p>
+  
+  <div class="chart-controls">
+    <div class="control-group">
+      <span class="control-label">Technical Indicators:</span>
+      <div class="indicator-buttons">
+        <button class="indicator-button active" data-indicator="sma-20" style="border-color: #f39c12;">20-Day SMA</button>
+        <button class="indicator-button active" data-indicator="sma-50" style="border-color: #3498db;">50-Day SMA</button>
+        <button class="indicator-button active" data-indicator="sma-200" style="border-color: #9b59b6;">200-Day SMA</button>
+        <button class="indicator-button" data-indicator="bollinger" style="border-color: #2c3e50;">Bollinger Bands</button>
+        <button class="indicator-button" data-indicator="rsi" style="border-color: #e74c3c;">RSI</button>
+        <button class="indicator-button" data-indicator="macd" style="border-color: #27ae60;">MACD</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <span class="control-label">Annotations:</span>
+      <div class="annotation-buttons">
+        <button class="annotation-button active" data-annotation="events">Key Events</button>
+        <button class="annotation-button active" data-annotation="patterns">Chart Patterns</button>
+        <button class="annotation-button active" data-annotation="levels">Support/Resistance</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="main-price-chart" class="chart-container">
+    <!-- Interactive chart will be rendered here -->
+  </div>
+  
+  <div class="chart-insights">
+    <h3 class="insights-title">Key Insights</h3>
+    <ul class="insights-list">
+      <li class="insight-item">
+        <span class="insight-icon">📉</span>
+        <span class="insight-text">Imugene is in a <strong>downtrend</strong>, trading below all major moving averages since early 2024.</span>
+      </li>
+      <li class="insight-item">
+        <span class="insight-icon">🔍</span>
+        <span class="insight-text">The stock is currently testing a <strong>critical support level</strong> at $0.030, which has held since January 2025.</span>
+      </li>
+      <li class="insight-item">
+        <span class="insight-icon">📊</span>
+        <span class="insight-text">A <strong>double bottom pattern</strong> may be forming, which could signal a potential reversal if confirmed.</span>
+      </li>
+      <li class="insight-item">
+        <span class="insight-icon">📅</span>
+        <span class="insight-text">Clinical trial announcements in March and June 2024 created significant but temporary price increases.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+```
+
+### 3. Volume Analysis: The Supporting Character
+
+**Title: "Volume: The Force Behind Price Movements"**
+
+This section focuses on trading volume as a supporting character that provides context and confirmation for price movements:
+
+- Volume heat map visualization
+- Volume spikes correlated with news events
+- Declining volume trend analysis
+- Educational content on volume interpretation
+
+```html
+<div class="volume-analysis-section">
+  <h2 class="section-title">Volume: The Force Behind Price Movements</h2>
+  <p class="section-intro">
+    Trading volume reveals the conviction behind price movements. Strong volume confirms trends, while divergences can signal potential reversals.
+  </p>
+  
+  <div id="volume-heat-map" class="chart-container">
+    <!-- Volume heat map will be rendered here -->
+  </div>
+  
+  <div class="volume-metrics">
+    <div class="volume-metric">
+      <div class="metric-title">Average Daily Volume (3 months)</div>
+      <div class="metric-value">5.2 million shares</div>
+    </div>
+    <div class="volume-metric">
+      <div class="metric-title">Average Daily Volume (10 days)</div>
+      <div class="metric-value">3.8 million shares</div>
+      <div class="metric-change negative">-27% vs 3-month average</div>
+    </div>
+    <div class="volume-metric">
+      <div class="metric-title">Volume Trend</div>
+      <div class="metric-value">Declining</div>
+    </div>
+  </div>
+  
+  <div class="volume-insights">
+    <h3 class="insights-title">Volume Insights</h3>
+    <p class="insight-text">
+      The declining volume trend suggests diminishing market interest, which is typical for stocks in a prolonged downtrend. However, this could also indicate a potential bottoming process if accompanied by price stabilization.
+    </p>
+    <p class="insight-text">
+      Notice the volume spikes (highlighted in red on the heat map) coinciding with company announcements and clinical trial updates. These represent periods of high investor interest and can often precede significant price movements.
+    </p>
+    <div class="educational-note">
+      <div class="note-title">📚 Understanding Volume</div>
+      <p class="note-text">
+        In technical analysis, volume confirms price movements. High volume during price increases suggests strong buying pressure, while high volume during declines indicates strong selling pressure. Low volume during price movements suggests the trend may lack conviction and could reverse.
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+### 4. Relative Strength Analysis: The Wider Context
+
+**Title: "Market Context: How Imugene Compares"**
+
+This section places Imugene's performance in the context of broader market movements:
+
+- Comparative performance chart against indices and peers
+- Relative strength metrics with visual indicators
+- Correlation analysis with sector movements
+- Insights on sector-specific vs. company-specific factors
+
+```html
+<div class="relative-strength-section">
+  <h2 class="section-title">Market Context: How Imugene Compares</h2>
+  <p class="section-intro">
+    Understanding how Imugene performs relative to the broader market and its peers provides crucial context for technical analysis.
+  </p>
+  
+  <div id="comparative-chart" class="chart-container">
+    <!-- Comparative performance chart will be rendered here -->
+  </div>
+  
+  <div class="comparison-metrics">
+    <div class="comparison-metric">
+      <div class="metric-title">vs. ASX 200 (12 months)</div>
+      <div class="metric-value negative">-65%</div>
+      <div class="metric-bar">
+        <div class="metric-bar-fill negative" style="width: 65%;"></div>
+      </div>
+    </div>
+    <div class="comparison-metric">
+      <div class="metric-title">vs. ASX Healthcare Index (12 months)</div>
+      <div class="metric-value negative">-58%</div>
+      <div class="metric-bar">
+        <div class="metric-bar-fill negative" style="width: 58%;"></div>
+      </div>
+    </div>
+    <div class="comparison-metric">
+      <div class="metric-title">vs. ASX Biotech Peers (12 months)</div>
+      <div class="metric-value negative">-42%</div>
+      <div class="metric-bar">
+        <div class="metric-bar-fill negative" style="width: 42%;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="relative-strength-insights">
+    <h3 class="insights-title">Relative Performance Insights</h3>
+    <p class="insight-text">
+      Imugene has underperformed both the broader ASX 200 index and the ASX Healthcare sector over the past 12 months. This significant underperformance reflects both sector-specific challenges and company-specific factors, including clinical trial timelines and cash burn concerns.
+    </p>
+    <p class="insight-text">
+      The closer performance to biotech peers (-42%) versus the broader market (-65%) suggests that some of this underperformance is sector-related rather than entirely company-specific.
+    </p>
+    <div class="educational-note">
+      <div class="note-title">📚 Relative Strength</div>
+      <p class="note-text">
+        Relative strength compares a stock's performance to a benchmark index or peer group. Outperformance may indicate stronger investor confidence in a company's prospects, while underperformance could signal concerns specific to the company or reduced interest in its sector.
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+### 5. Future Scenarios: The Plot Twists
+
+**Title: "What Could Happen Next? Exploring Scenarios"**
+
+This section introduces the interactive scenario builder to explore potential future price movements:
+
+- Interactive "What-If" scenario builder
+- Bullish, base case, and bearish projections
+- Catalyst impact simulation
+- Educational content on technical-based forecasting
+
+```html
+<div class="scenario-section">
+  <h2 class="section-title">What Could Happen Next? Exploring Scenarios</h2>
+  <p class="section-intro">
+    Based on technical analysis and potential catalysts, we can explore different scenarios for Imugene's share price. Use the interactive controls below to create your own projections.
+  </p>
+  
+  <div id="scenario-builder" class="chart-container">
+    <!-- Scenario builder will be rendered here -->
+  </div>
+  
+  <div class="scenario-insights">
+    <h3 class="insights-title">Scenario Insights</h3>
+    <div class="scenario-insight">
+      <h4 class="scenario-title">Bullish Case</h4>
+      <p class="scenario-text">
+        In the bullish scenario, Imugene confirms support at the current level and begins an uptrend, potentially breaking above the 50-day moving average within 3 months. This could be triggered by positive clinical trial results or strategic partnerships.
+      </p>
+    </div>
+    <div class="scenario-insight">
+      <h4 class="scenario-title">Base Case</h4>
+      <p class="scenario-text">
+        The base case suggests continued consolidation around current levels with gradual improvement over 6-12 months as the company progresses its clinical pipeline. Price would likely remain below the 200-day moving average but could establish a series of higher lows.
+      </p>
+    </div>
+    <div class="scenario-insight">
+      <h4 class="scenario-title">Bearish Case</h4>
+      <p class="scenario-text">
+        The bearish scenario involves breaking below the $0.030 support level, potentially leading to a new downleg targeting $0.025 or lower. This could be triggered by clinical setbacks, increased cash burn, or broader market weakness.
+      </p>
+    </div>
+    <div class="educational-note">
+      <div class="note-title">📚 Technical-Based Forecasting</div>
+      <p class="note-text">
+        Technical analysis can help identify potential price targets based on chart patterns, support/resistance levels, and historical behavior. However, it's important to remember that biotech stocks like Imugene can experience sudden price movements based on clinical trial results and regulatory decisions that may override technical factors.
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+### 6. Trading Strategy: The Resolution
+
+**Title: "Trading Strategy: Putting Analysis into Action"**
+
+This section concludes the narrative by translating the technical analysis into actionable trading strategies:
+
+- Strategy recommendations for different time horizons
+- Key technical levels to watch
+- Risk management considerations
+- Integration with fundamental catalysts
+
+```html
+<div class="strategy-section">
+  <h2 class="section-title">Trading Strategy: Putting Analysis into Action</h2>
+  <p class="section-intro">
+    Technical analysis is most valuable when it informs a clear trading strategy. Based on the current technical picture, here are potential approaches for different investor types.
+  </p>
+  
+  <div class="strategy-cards">
+    <div class="strategy-card">
+      <div class="strategy-header">
+        <h3 class="strategy-title">Short-Term Traders (1-3 months)</h3>
+        <div class="strategy-rating neutral">Neutral with Bearish Bias</div>
+      </div>
+      <div class="strategy-content">
+        <p class="strategy-text">
+          Current technical indicators suggest caution for short-term traders. The stock is in a downtrend below all major moving averages but is testing a key support level.
+        </p>
+        <div class="strategy-recommendation">
+          <strong>Recommendation:</strong> Consider waiting for confirmation of a bounce from support before establishing new positions. Set tight stop losses below $0.028 to manage risk.
+        </div>
+        <div class="strategy-levels">
+          <div class="level">
+            <span class="level-label">Entry Point:</span>
+            <span class="level-value">Confirmation of support at $0.030</span>
+          </div>
+          <div class="level">
+            <span class="level-label">Stop Loss:</span>
+            <span class="level-value">$0.028 (-7%)</span>
+          </div>
+          <div class="level">
+            <span class="level-label">Target:</span>
+            <span class="level-value">$0.035 (+17%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="strategy-card">
+      <div class="strategy-header">
+        <h3 class="strategy-title">Medium-Term Traders (3-12 months)</h3>
+        <div class="strategy-rating positive">Accumulate on Weakness</div>
+      </div>
+      <div class="strategy-content">
+        <p class="strategy-text">
+          For medium-term traders with higher risk tolerance, the current price levels near multi-year lows may present accumulation opportunities.
+        </p>
+        <div class="strategy-recommendation">
+          <strong>Recommendation:</strong> Consider establishing partial positions at current levels with plans to add on either confirmation of support or positive catalyst announcements.
+        </div>
+        <div class="strategy-levels">
+          <div class="level">
+            <span class="level-label">Initial Entry:</span>
+            <span class="level-value">Current levels ($0.030)</span>
+          </div>
+          <div class="level">
+            <span class="level-label">Secondary Entry:</span>
+            <span class="level-value">On break above $0.035</span>
+          </div>
+          <div class="level">
+            <span class="level-label">Stop Loss:</span>
+            <span class="level-value">$0.025 (-17%)</span>
+          </div>
+          <div class="level">
+            <span class="level-label">Target:</span>
+            <span class="level-value">$0.047 (+57%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="strategy-card">
+      <div class="strategy-header">
+        <h3 class="strategy-title">Long-Term Investors (1+ years)</h3>
+        <div class="strategy-rating positive">Strategic Accumulation</div>
+      </div>
+      <div class="strategy-content">
+        <p class="strategy-text">
+          Long-term investors focused on Imugene's clinical pipeline and fundamental value may view current technical weakness as an opportunity for strategic accumulation.
+        </p>
+        <div class="strategy-recommendation">
+          <strong>Recommendation:</strong> Consider a dollar-cost averaging approach, allocating capital in tranches over several months to build a position at favorable average prices.
+        </div>
+        <div class="strategy-levels">
+          <div class="level">
+            <span class="level-label">Accumulation Range:</span>
+            <span class="level-value">$0.025-$0.035</span>
+          </div>
+          <div class="level">
+            <span class="level-label">Position Sizing:</span>
+            <span class="level-value">25% increments</span>
+          </div>
+          <div class="level">
+            <span class="level-label">Long-term Target:</span>
+            <span class="level-value">$0.10+ based on clinical milestones</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="key-levels">
+    <h3 class="levels-title">Key Technical Levels to Watch</h3>
+    <div class="levels-container">
+      <div class="level-item support">
+        <div class="level-label">Support</div>
+        <div class="level-values">
+          <div class="level-value primary">$0.030 (current)</div>
+          <div class="level-value secondary">$0.025 (secondary)</div>
+        </div>
+      </div>
+      <div class="level-item resistance">
+        <div class="level-label">Resistance</div>
+        <div class="level-values">
+          <div class="level-value primary">$0.035 (20-day SMA)</div>
+          <div class="level-value secondary">$0.047 (recent high)</div>
+        </div>
+      </div>
+      <div class="level-item volume">
+        <div class="level-label">Volume Trigger</div>
+        <div class="level-values">
+          <div class="level-value">Daily volume exceeding 10 million shares</div>
+          <div class="level-description">Could signal increased interest</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="catalyst-integration">
+    <h3 class="catalyst-title">Integrating Technical Analysis with Catalysts</h3>
+    <p class="catalyst-text">
+      While technical analysis provides valuable insights into market sentiment and potential price movements, it's essential to integrate this with awareness of upcoming catalysts that could override technical factors:
+    </p>
+    <ul class="catalyst-list">
+      <li class="catalyst-item">
+        <span class="catalyst-date">Q2 2025</span>
+        <span class="catalyst-description">Phase 2 clinical trial results for CF33 oncolytic virus</span>
+      </li>
+      <li class="catalyst-item">
+        <span class="catalyst-date">Q3 2025</span>
+        <span class="catalyst-description">Cash runway update and potential capital raising</span>
+      </li>
+      <li class="catalyst-item">
+        <span class="catalyst-date">Q4 2025</span>
+        <span class="catalyst-description">Potential partnership announcements</span>
+      </li>
+    </ul>
+    <p class="catalyst-text">
+      Consider adjusting your technical trading strategy as these dates approach, potentially reducing position sizes or tightening stop losses to manage the increased volatility often associated with binary events.
+    </p>
+  </div>
+</div>
+```
+
+### 7. Educational Sidebar: The Narrator's Commentary
+
+**Title: "Technical Analysis Toolkit"**
+
+This sidebar provides educational content throughout the narrative:
+
+- Explanations of technical indicators
+- Chart pattern recognition guide
+- Volume analysis principles
+- Common technical analysis terms
+
+```html
+<div class="educational-sidebar">
+  <h2 class="sidebar-title">Technical Analysis Toolkit</h2>
+  <p class="sidebar-intro">
+    New to technical analysis? This guide explains the key concepts and tools used in our analysis.
+  </p>
+  
+  <div class="accordion" id="technical-accordion">
+    <div class="accordion-item">
+      <h3 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+          Moving Averages Explained
+        </button>
+      </h3>
+      <div id="collapseOne" class="accordion-collapse collapse show">
+        <div class="accordion-body">
+          <p>Moving averages smooth out price data to create a single flowing line, making it easier to identify the direction of the trend.</p>
+          <ul>
+            <li><strong>20-Day SMA (Orange):</strong> Short-term trend indicator</li>
+            <li><strong>50-Day SMA (Blue):</strong> Medium-term trend indicator</li>
+            <li><strong>200-Day SMA (Purple):</strong> Long-term trend indicator</li>
+          </ul>
+          <p>When shorter-term averages cross above longer-term averages, it's often considered bullish (Golden Cross). The opposite is considered bearish (Death Cross).</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+          Chart Patterns Guide
+        </button>
+      </h3>
+      <div id="collapseTwo" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <div class="pattern-item">
+            <h4>Double Bottom</h4>
+            <p>A bullish reversal pattern that forms after a downtrend, creating two consecutive lows at approximately the same level. It signals that sellers have attempted twice to push the price lower, but have failed.</p>
+            <div class="pattern-image">
+              <img src="path/to/double-bottom.png" alt="Double Bottom Pattern">
+            </div>
+          </div>
+          <div class="pattern-item">
+            <h4>Head and Shoulders</h4>
+            <p>A bearish reversal pattern that forms at the end of an uptrend. It consists of three peaks, with the middle peak (head) being the highest and the two outer peaks (shoulders) being lower and roughly equal.</p>
+            <div class="pattern-image">
+              <img src="path/to/head-shoulders.png" alt="Head and Shoulders Pattern">
+            </div>
+          </div>
+          <!-- More patterns -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+          Volume Analysis Principles
+        </button>
+      </h3>
+      <div id="collapseThree" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <p>Volume is the number of shares traded during a given period. It provides insight into the strength of price movements:</p>
+          <ul>
+            <li><strong>High Volume + Price Increase:</strong> Strong buying pressure, bullish</li>
+            <li><strong>High Volume + Price Decrease:</strong> Strong selling pressure, bearish</li>
+            <li><strong>Low Volume + Price Movement:</strong> Lack of conviction, potential reversal</li>
+            <li><strong>Volume Precedes Price:</strong> Often, volume increases before significant price movements</li>
+          </ul>
+          <p>Volume trends can also signal accumulation (smart money buying) or distribution (smart money selling) phases.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+          Technical Indicators Glossary
+        </button>
+      </h3>
+      <div id="collapseFour" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <dl class="glossary-list">
+            <dt>RSI (Relative Strength Index)</dt>
+            <dd>A momentum oscillator that measures the speed and change of price movements on a scale from 0 to 100. Traditionally, RSI values over 70 indicate overbought conditions, while values below 30 indicate oversold conditions.</dd>
+            
+            <dt>MACD (Moving Average Convergence Divergence)</dt>
+            <dd>A trend-following momentum indicator that shows the relationship between two moving averages of a security's price. The MACD is calculated by subtracting the 26-period EMA from the 12-period EMA.</dd>
+            
+            <dt>Bollinger Bands</dt>
+            <dd>A volatility indicator consisting of a middle band (usually a 20-period SMA) and two outer bands that are standard deviations away from the middle band. They expand during volatile periods and contract during less volatile periods.</dd>
+            
+            <!-- More terms -->
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Visual Storytelling Elements
+
+### Color Coding System
+
+- **Green** (#2ecc71): Bullish elements, positive changes, support levels
+- **Red** (#e74c3c): Bearish elements, negative changes, resistance levels
+- **Blue** (#3498db): Neutral elements, informational content
+- **Purple** (#9b59b6): Educational content, long-term trends
+- **Orange** (#f39c12): Warning signals, volatility indicators
+- **Gray** (#7f8c8d): Background information, context
+
+### Visual Cues and Icons
+
+- 📈 Uptrend/bullish signal
+- 📉 Downtrend/bearish signal
+- 🔍 Key level to watch
+- 📊 Pattern identified
+- 📅 Event/catalyst
+- 📚 Educational content
+- ⚠️ Warning/risk
+- 💡 Insight/tip
+
+### Interactive Progression
+
+The storytelling framework guides users through a logical progression:
+
+1. **Introduction**: Set the stage with key metrics
+2. **Price Action**: Explore the main chart with interactive controls
+3. **Volume Analysis**: Understand the force behind price movements
+4. **Relative Strength**: Place performance in market context
+5. **Future Scenarios**: Explore potential outcomes
+6. **Trading Strategy**: Translate analysis into action
+
+At each stage, users can:
+- Interact with visualizations
+- Access educational content
+- Gain actionable insights
+- Progress at their own pace
+
+## Implementation Approach
+
+1. Create the HTML structure following the narrative framework
+2. Implement the interactive charts using Highcharts Stock
+3. Add educational content with expandable sections
+4. Implement color coding and visual cues consistently
+5. Ensure smooth transitions between narrative sections
+6. Add responsive design elements for all device sizes
+
+This storytelling framework transforms technical analysis from a collection of charts and indicators into an engaging narrative that guides users through Imugene's technical performance, making complex concepts accessible and actionable.

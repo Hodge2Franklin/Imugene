@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Imugene (IMU.AX) Stock Analysis - Financial Analysis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .visualization-section {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .visualization-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .visualization-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .visualization-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .visualization-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .visualization-card-content {
+            padding: 15px;
+        }
+        .visualization-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1e293b;
+            font-size: 18px;
+        }
+        .visualization-card p {
+            color: #4b5563;
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .visualization-card .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        .visualization-card .btn:hover {
+            background-color: #2563eb;
+        }
+        .interactive-badge {
+            display: inline-block;
+            background-color: #10b981;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-title">
+            Imugene Analysis
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i> Overview</a></li>
+            <li><a href="visualizations.html"><i class="fas fa-chart-pie"></i> All Visualizations</a></li>
+            <li><a href="financial_analysis.html" class="active"><i class="fas fa-chart-line"></i> Financial Analysis</a></li>
+            <li><a href="clinical_trials.html"><i class="fas fa-flask"></i> Clinical Trials</a></li>
+            <li><a href="technical_analysis.html"><i class="fas fa-chart-bar"></i> Technical Analysis</a></li>
+            <li><a href="short_selling_analysis.html"><i class="fas fa-arrow-down"></i> Short Selling</a></li>
+            <li><a href="market_position.html"><i class="fas fa-building"></i> Competitor Analysis</a></li>
+            <li><a href="investment_recommendations.html"><i class="fas fa-lightbulb"></i> Investment Thesis</a></li>
+            <li><a href="options_trading.html"><i class="fas fa-exchange-alt"></i> Options Trading</a></li>
+            <li><a href="csl_case_study.html"><i class="fas fa-microscope"></i> CSL Case Study</a></li>
+            <li><a href="catalyst_calendar.html"><i class="fas fa-calendar-alt"></i> Catalyst Calendar</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Imugene (IMU) Stock Analysis - Financial Analysis</h1>
+            <div class="header-actions">
+                <button class="btn"><i class="fas fa-share-alt"></i> Share</button>
+                <button class="btn"><i class="fas fa-file-export"></i> Export</button>
+                <button class="btn btn-primary"><i class="fas fa-calendar-week"></i> This week</button>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2>Financial Visualizations</h2>
+            <p>Explore key financial metrics and projections for Imugene through these interactive and static visualizations.</p>
+            
+            <div class="visualization-container">
+                <!-- Cash Runway Analysis -->
+                <div class="visualization-card">
+                    <img src="graphs/output/cash_runway_analysis.png" alt="Cash Runway Analysis">
+                    <div class="visualization-card-content">
+                        <h3>Cash Runway Analysis</h3>
+                        <p>Projection of Imugene's cash position and burn rate under different scenarios, including potential capital raises.</p>
+                        <a href="graphs/output/cash_runway_analysis.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Valuation Scenario Analysis -->
+                <div class="visualization-card">
+                    <img src="graphs/output/valuation_scenario_analysis.png" alt="Valuation Scenario Analysis">
+                    <div class="visualization-card-content">
+                        <h3>Valuation Scenario Analysis <span class="interactive-badge">Interactive</span></h3>
+                        <p>Interactive radar chart with adjustable parameters to explore different valuation scenarios for each drug candidate.</p>
+                        <a href="graphs/output/interactive_valuation_scenario.html" class="btn" target="_blank">View Interactive Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Revenue Projections -->
+                <div class="visualization-card">
+                    <img src="graphs/output/revenue_projections.png" alt="Revenue Projections">
+                    <div class="visualization-card-content">
+                        <h3>Revenue Projections by Drug Candidate</h3>
+                        <p>Projected revenue streams from each drug candidate in Imugene's pipeline over the next decade.</p>
+                        <a href="graphs/output/revenue_projections.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="card">
+                <h1>Imugene (IMU.AX) Financial Analysis</h1>
+<h2>Current Financial Position</h2>
+<p>Imugene Limited (IMU.AX) is a clinical-stage biotech company with the following key financial metrics:</p>
+<ul>
+<li><strong>Current Share Price</strong>: AUD 0.03 (as of analysis date)</li>
+<li><strong>Market Capitalization</strong>: AUD 220 million</li>
+<li><strong>Cash Position</strong>: AUD 100 million</li>
+<li>AUD 55 million (existing cash less current liabilities as of 31/12/24)</li>
+<li>AUD 45 million (recent capital raise through convertible notes)</li>
+<li><strong>Annual Burn Rate</strong>: AUD 50 million</li>
+<li><strong>Projected Runway</strong>: Approximately 24 months (until early 2027)</li>
+<li><strong>IP Valuation on Balance Sheet</strong>: AUD 30 million</li>
+<li><strong>Implied Enterprise Value</strong>: AUD 150 million (excluding cash)</li>
+</ul>
+<h2>Cash Flow Analysis</h2>
+<p>Based on the cash flow projection chart, Imugene's financial runway can be analyzed under three scenarios:</p>
+<h3>Base Case Scenario</h3>
+<ul>
+<li>Starting cash position of AUD 100 million</li>
+<li>Consistent burn rate leading to cash depletion by approximately month 24 (early 2027)</li>
+<li>Provides sufficient runway to reach potential value-inflection points without immediate financing pressure</li>
+</ul>
+<h3>Optimistic Case (Partnership Deal)</h3>
+<ul>
+<li>Partnership deal occurring around month 15 (mid-2026)</li>
+<li>Cash infusion from partnership extending runway well beyond the 2-year mark</li>
+<li>Potential for positive cash flow from partnerships before profitability</li>
+</ul>
+<h3>Conservative Case (Increased Burn Rate)</h3>
+<ul>
+<li>Accelerated spending to advance clinical trials</li>
+<li>Cash depletion occurring around month 20 (Q4 2026)</li>
+<li>Would necessitate earlier additional financing</li>
+</ul>
+<p>The 24-month runway in the base case provides Imugene with sufficient time to advance clinical trials to potential partnership-ready stages, which aligns with their commercialization timeline targeting initial partnership deals by mid-2026.</p>
+<h2>Financing Strategy Analysis</h2>
+<p>Imugene recently raised AUD 45 million through convertible notes, representing a shift from their previous approach of traditional capital raises. The dilution comparison chart illustrates the impact of this strategy:</p>
+<h3>Traditional Capital Raise (20% discount)</h3>
+<ul>
+<li>Would result in approximately 25.57% dilution</li>
+<li>Immediate impact on share price and ownership structure</li>
+<li>Historical pattern has led to consistent downward pressure on share price</li>
+</ul>
+<h3>Convertible Notes (estimated 10% discount)</h3>
+<ul>
+<li>Results in approximately 22.73% dilution</li>
+<li>Potentially less immediate dilution compared to traditional discounted placements</li>
+<li>May signal management's confidence in future share price appreciation</li>
+</ul>
+<p>This shift to convertible notes may indicate an improvement in financing approach, though it creates future conversion overhang that may pressure share price. The strategy appears to balance the need for capital with attempts to minimize immediate dilution.</p>
+<h2>IP Valuation Scenarios</h2>
+<p>The intellectual property valuation chart illustrates the potential value of Imugene's IP under different scenarios:</p>
+<ol>
+<li><strong>Current Balance Sheet</strong>: AUD 30 million</li>
+<li>
+<p>Represents the conservative accounting valuation</p>
+</li>
+<li>
+<p><strong>Successful Phase 2 Results</strong>: AUD 150 million</p>
+</li>
+<li>5x increase from current balance sheet valuation</li>
+<li>
+<p>Potential near-term catalyst (2025-2026)</p>
+</li>
+<li>
+<p><strong>Commercial Partnership</strong>: AUD 300 million</p>
+</li>
+<li>10x increase from current balance sheet valuation</li>
+<li>
+<p>Aligned with mid-term commercialization timeline (2026)</p>
+</li>
+<li>
+<p><strong>Multiple Successful Trials</strong>: AUD 500 million</p>
+</li>
+<li>16.7x increase from current balance sheet valuation</li>
+<li>
+<p>Represents successful advancement across multiple indications</p>
+</li>
+<li>
+<p><strong>Acquisition Target</strong>: AUD 750 million</p>
+</li>
+<li>25x increase from current balance sheet valuation</li>
+<li>Represents premium valuation in acquisition scenario</li>
+</ol>
+<p>This analysis highlights the significant potential upside in IP valuation that is not reflected in the current share price, with successful Phase 2 results alone potentially justifying a 5x increase in IP valuation.</p>
+<h2>Share Price Scenarios</h2>
+<p>The share price scenarios chart projects potential price targets under different outcomes:</p>
+<ol>
+<li><strong>Current</strong>: AUD 0.0300</li>
+<li>
+<p>Current 52-week low</p>
+</li>
+<li>
+<p><strong>IP Revaluation</strong>: AUD 0.0477</p>
+</li>
+<li>59% increase from current price</li>
+<li>
+<p>Based on revaluation of IP assets following positive trial results</p>
+</li>
+<li>
+<p><strong>Partnership Deal</strong>: AUD 0.0682</p>
+</li>
+<li>127% increase from current price</li>
+<li>
+<p>Reflects value of initial commercial validation</p>
+</li>
+<li>
+<p><strong>Multiple Partnerships</strong>: AUD 0.1023</p>
+</li>
+<li>241% increase from current price</li>
+<li>
+<p>Represents broader commercial validation across multiple indications</p>
+</li>
+<li>
+<p><strong>Major Acquisition Interest</strong>: AUD 0.1364</p>
+</li>
+<li>355% increase from current price</li>
+<li>
+<p>Reflects acquisition premium</p>
+</li>
+<li>
+<p><strong>Nobel Prize Nomination</strong>: AUD 0.2045</p>
+</li>
+<li>582% increase from current price</li>
+<li>Represents exceptional outcome scenario</li>
+</ol>
+<p>These scenarios align with the risk-weighted valuation analysis from the supplementary materials, which suggests:
+- 20% probability of failure: -100% return
+- 50% probability of moderate success (100% return): Share price to AUD 0.06
+- 30% probability of significant success (300% return): Share price to AUD 0.12
+- Expected value: 200% return on investment by December 2026</p>
+<h2>Management Concerns and Financial Impact</h2>
+<p>The financial analysis must consider management concerns that represent a significant non-scientific risk factor:</p>
+<ul>
+<li>CFO Paul Hopper described as potentially engaging in value-destructive financing practices</li>
+<li>History of dilutive capital raises at significant discounts to market price</li>
+<li>Potential misalignment with shareholder interests in financing decisions</li>
+</ul>
+<p>These concerns have likely contributed to the stock's underperformance despite positive clinical developments. However, the recent shift to convertible notes may indicate improvement in financing approach.</p>
+<h2>Conclusion</h2>
+<p>Imugene's financial position presents a mixed picture:</p>
+<p><strong>Strengths:</strong>
+- Substantial cash position (AUD 100 million)
+- Sufficient runway (24 months) to reach potential value-inflection points
+- Significant upside potential in IP valuation under success scenarios
+- Recent improvement in financing approach with convertible notes</p>
+<p><strong>Challenges:</strong>
+- High burn rate (AUD 50 million annually)
+- Management concerns regarding financing practices
+- Potential future dilution from capital raises or convertible note conversion
+- Pre-revenue status with no near-term prospects for profitability</p>
+<p>The financial analysis suggests that while Imugene faces typical challenges of a clinical-stage biotech company, its current valuation appears to significantly discount the potential value of successful clinical outcomes. The 24-month cash runway provides a critical window for the company to advance its clinical pipeline to value-inflection points that could trigger partnership deals and significantly revalue its intellectual property.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Imugene (IMU.AX) Investment Analysis - April 2025</p>
+            <p><a href="https://github.com/Hodge2Franklin/Imugene" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

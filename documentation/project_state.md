@@ -4,8 +4,8 @@
 This document serves as a comprehensive reference for the Imugene analysis website project. It contains all essential information about the current state of the project, including deployment URLs, repository information, project structure, implemented features, and pending tasks.
 
 ## Latest Deployment URL
-- **Current Production URL**: https://qftnazcb.manus.space
-- **Technical Analysis Enhanced Page**: https://qftnazcb.manus.space/technical_analysis_enhanced.html
+- **Current Production URL**: https://siuvrrja.manus.space
+- **Technical Analysis Enhanced Page**: https://siuvrrja.manus.space/technical_analysis_enhanced.html
 - **Coming Soon Test Page**: https://qftnazcb.manus.space/coming_soon_test.html
 - **Previous Production URL**: https://jlkborqe.manus.space
 - **Earlier Production URL**: https://qmtlsebo.manus.space

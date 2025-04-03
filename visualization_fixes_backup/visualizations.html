@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Visualizations - Imugene (IMU.AX) Stock Analysis</title>
+    <link rel="stylesheet" href="css/unified-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Load Highcharts -->
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    
+    <!-- Load ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+    <!-- Load visualization loader -->
+    <script src="js/visualization_loader.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="https://www.imugene.com/images/logo.png" alt="Imugene Logo">
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i> Overview</a></li>
+            <li><a href="visualizations.html" class="active"><i class="fas fa-chart-pie"></i> All Visualizations</a></li>
+            <li><a href="interactive_visualizations.html"><i class="fas fa-sliders-h"></i> Interactive Tools</a></li>
+            <li><a href="financial_analysis.html"><i class="fas fa-chart-line"></i> Financial Analysis</a></li>
+            <li><a href="clinical_trials.html"><i class="fas fa-flask"></i> Clinical Trials</a></li>
+            <li><a href="technical_analysis_enhanced.html"><i class="fas fa-chart-bar"></i> Technical Analysis</a></li>
+            <li><a href="short_selling_analysis.html"><i class="fas fa-arrow-down"></i> Short Selling</a></li>
+            <li><a href="market_position.html"><i class="fas fa-building"></i> Competitor Analysis</a></li>
+            <li><a href="investment_recommendations.html"><i class="fas fa-lightbulb"></i> Investment Thesis</a></li>
+            <li><a href="options_trading.html"><i class="fas fa-exchange-alt"></i> Options Trading</a></li>
+            <li><a href="csl_case_study.html"><i class="fas fa-microscope"></i> CSL Case Study</a></li>
+            <li><a href="catalyst_calendar.html"><i class="fas fa-calendar-alt"></i> Catalyst Calendar</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">All Visualizations - Imugene (IMU.AX)</h1>
+            <div class="header-actions">
+                <button class="btn"><i class="fas fa-share-alt"></i> Share</button>
+                <button class="btn"><i class="fas fa-file-export"></i> Export</button>
+                <button class="btn btn-primary"><i class="fas fa-calendar-week"></i> This week</button>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Comprehensive Visualization Library</h2>
+            <p class="section-intro">Explore our complete collection of visualizations for Imugene (IMU.AX). Filter by category or visualization type to find specific insights.</p>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="financial">Financial</button>
+                <button class="filter-btn" data-filter="clinical">Clinical</button>
+                <button class="filter-btn" data-filter="market">Market</button>
+                <button class="filter-btn" data-filter="risk">Risk</button>
+                <button class="filter-btn" data-filter="interactive">Interactive</button>
+            </div>
+            
+            <div class="visualization-grid">
+                <!-- Stock Price History -->
+                <div class="visualization-card" data-category="financial market">
+                    <img src="graphs/output/stock_price_history.png" alt="Stock Price History">
+                    <div class="visualization-card-content">
+                        <h3>Stock Price History with Moving Averages</h3>
+                        <p>Historical stock price with 50-day and 200-day moving averages, volume data, and key event annotations.</p>
+                        <a href="graphs/output/stock_price_history.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Market Cap Comparison -->
+                <div class="visualization-card" data-category="financial market">
+                    <img src="graphs/output/market_cap_comparison.png" alt="Market Cap Comparison">
+                    <div class="visualization-card-content">
+                        <h3>Market Cap Comparison</h3>
+                        <p>Comparison of Imugene's market capitalization with similar ASX-listed biotech companies.</p>
+                        <a href="graphs/output/market_cap_comparison.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Revenue Projections -->
+                <div class="visualization-card" data-category="financial">
+                    <img src="graphs/output/revenue_projections.png" alt="Revenue Projections">
+                    <div class="visualization-card-content">
+                        <h3>Revenue Projections by Drug Candidate</h3>
+                        <p>Projected revenue streams from each drug candidate in Imugene's pipeline over the next decade.</p>
+                        <a href="graphs/output/revenue_projections.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Interactive Clinical Trial Timeline -->
+                <div class="visualization-card" data-category="clinical interactive">
+                    <img src="graphs/output/clinical_trial_timeline.png" alt="Clinical Trial Timeline">
+                    <div class="visualization-card-content">
+                        <h3>Clinical Trial Timeline <span class="interactive-badge">Interactive</span></h3>
+                        <p>Interactive timeline of Imugene's clinical trials with filtering by phase and status.</p>
+                        <a href="graphs/output/interactive_clinical_trial_timeline.html" class="btn" target="_blank">View Interactive Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Interactive Drug Pipeline Comparison -->
+                <div class="visualization-card" data-category="clinical interactive">
+                    <img src="graphs/output/drug_pipeline_comparison.png" alt="Drug Pipeline Comparison">
+                    <div class="visualization-card-content">
+                        <h3>Drug Pipeline Comparison <span class="interactive-badge">Interactive</span></h3>
+                        <p>Multi-view interactive visualization of Imugene's drug pipeline with NPV comparison and success probability analysis.</p>
+                        <a href="graphs/output/interactive_drug_pipeline.html" class="btn" target="_blank">View Interactive Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Interactive Valuation Scenario Analysis -->
+                <div class="visualization-card" data-category="financial interactive">
+                    <img src="graphs/output/valuation_scenario_analysis.png" alt="Valuation Scenario Analysis">
+                    <div class="visualization-card-content">
+                        <h3>Valuation Scenario Analysis <span class="interactive-badge">Interactive</span></h3>
+                        <p>Interactive radar chart with adjustable parameters to explore different valuation scenarios for each drug candidate.</p>
+                        <a href="graphs/output/interactive_valuation_scenario.html" class="btn" target="_blank">View Interactive Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Cash Runway Analysis -->
+                <div class="visualization-card" data-category="financial risk">
+                    <img src="graphs/output/cash_runway_analysis.png" alt="Cash Runway Analysis">
+                    <div class="visualization-card-content">
+                        <h3>Cash Runway Analysis</h3>
+                        <p>Detailed analysis of Imugene's cash position, burn rate, and projected runway under different scenarios.</p>
+                        <a href="graphs/output/cash_runway_analysis.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Short Interest Analysis -->
+                <div class="visualization-card" data-category="market risk">
+                    <img src="graphs/output/short_interest_analysis.png" alt="Short Interest Analysis">
+                    <div class="visualization-card-content">
+                        <h3>Short Interest Analysis</h3>
+                        <p>Analysis of short selling activity and its correlation with Imugene's share price movements.</p>
+                        <a href="graphs/output/short_interest_analysis.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Institutional Ownership Breakdown -->
+                <div class="visualization-card" data-category="market">
+                    <img src="img/coming_soon.png" alt="Institutional Ownership Breakdown">
+                    <div class="visualization-card-content">
+                        <h3>Institutional Ownership Breakdown <span class="interactive-badge">Coming Soon</span></h3>
+                        <p>Detailed breakdown of institutional ownership with historical changes and comparison to peer companies.</p>
+                        <a href="#" class="btn disabled">Coming Soon</a>
+                    </div>
+                </div>
+                
+                <!-- Analyst Ratings & Price Targets -->
+                <div class="visualization-card" data-category="market">
+                    <img src="img/coming_soon.png" alt="Analyst Ratings & Price Targets">
+                    <div class="visualization-card-content">
+                        <h3>Analyst Ratings & Price Targets <span class="interactive-badge">Coming Soon</span></h3>
+                        <p>Comprehensive view of analyst ratings, price targets, and consensus estimates for Imugene.</p>
+                        <a href="#" class="btn disabled">Coming Soon</a>
+                    </div>
+                </div>
+                
+                <!-- Interactive Cash Flow Visualization -->
+                <div class="visualization-card" data-category="financial interactive">
+                    <img src="graphs/output/interactive_cash_flow.png" alt="Interactive Cash Flow Visualization">
+                    <div class="visualization-card-content">
+                        <h3>Cash Flow Visualization <span class="interactive-badge">Interactive</span></h3>
+                        <p>Interactive Sankey diagram showing Imugene's cash flow sources and uses with adjustable parameters.</p>
+                        <a href="interactive_visualizations.html#cash-flow" class="btn" target="_blank">View Interactive Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Risk Matrix -->
+                <div class="visualization-card" data-category="risk">
+                    <img src="graphs/output/risk_matrix.png" alt="Risk Matrix">
+                    <div class="visualization-card-content">
+                        <h3>Investment Risk Matrix</h3>
+                        <p>Comprehensive risk assessment matrix for Imugene with probability and impact analysis.</p>
+                        <a href="graphs/output/risk_matrix.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Imugene (IMU.AX) Investment Analysis - April 2025</p>
+            <p><a href="https://github.com/Hodge2Franklin/Imugene" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Visualization filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const visualizationCards = document.querySelectorAll('.visualization-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    visualizationCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const categories = card.getAttribute('data-category');
+                            if (categories.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

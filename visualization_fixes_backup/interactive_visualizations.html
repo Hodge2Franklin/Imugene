@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imugene Interactive Visualizations</title>
+    <link rel="stylesheet" href="css/unified-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Load D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Load Lightweight Charts for technical analysis -->
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <!-- Load Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Load jQuery for DOM manipulation -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="https://www.imugene.com/images/logo.png" alt="Imugene Logo">
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i> Overview</a></li>
+            <li><a href="visualizations.html"><i class="fas fa-chart-pie"></i> All Visualizations</a></li>
+            <li><a href="interactive_visualizations.html" class="active"><i class="fas fa-sliders-h"></i> Interactive Tools</a></li>
+            <li><a href="financial_analysis.html"><i class="fas fa-chart-line"></i> Financial Analysis</a></li>
+            <li><a href="clinical_trials.html"><i class="fas fa-flask"></i> Clinical Trials</a></li>
+            <li><a href="technical_analysis_enhanced.html"><i class="fas fa-chart-bar"></i> Technical Analysis</a></li>
+            <li><a href="short_selling_analysis.html"><i class="fas fa-arrow-down"></i> Short Selling</a></li>
+            <li><a href="market_position.html"><i class="fas fa-building"></i> Competitor Analysis</a></li>
+            <li><a href="investment_recommendations.html"><i class="fas fa-lightbulb"></i> Investment Thesis</a></li>
+            <li><a href="options_trading.html"><i class="fas fa-exchange-alt"></i> Options Trading</a></li>
+            <li><a href="csl_case_study.html"><i class="fas fa-microscope"></i> CSL Case Study</a></li>
+            <li><a href="catalyst_calendar.html"><i class="fas fa-calendar-alt"></i> Catalyst Calendar</a></li>
+        </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Interactive Visualizations</h1>
+            <div class="header-actions">
+                <button class="btn"><i class="fas fa-share-alt"></i> Share</button>
+                <button class="btn"><i class="fas fa-file-export"></i> Export</button>
+                <button class="btn btn-primary"><i class="fas fa-calendar-week"></i> This week</button>
+            </div>
+        </div>
+
+        <section id="overview" class="section">
+            <h2 class="section-title">Overview</h2>
+            <p class="section-intro">Welcome to the interactive analysis dashboard for Imugene Limited (ASX:IMU). This dashboard provides comprehensive visualizations and interactive tools to help you understand Imugene's financial position, clinical trial progress, technical analysis, and competitive landscape.</p>
+            
+            <p>Use the navigation menu to explore different sections of the analysis. Each section contains interactive visualizations that allow you to customize parameters, filter data, and gain deeper insights into Imugene's performance and potential.</p>
+            
+            <div class="card">
+                <h3 class="card-title">Key Metrics Overview</h3>
+                <div class="key-metrics-container">
+                    <div class="key-metric">
+                        <div class="metric-title">Current Share Price</div>
+                        <div class="metric-value">$0.030</div>
+                        <div class="metric-change negative">-5.2% (1 month)</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="metric-title">Market Cap</div>
+                        <div class="metric-value">$150M</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="metric-title">Cash Position</div>
+                        <div class="metric-value">$53M</div>
+                        <div class="metric-subtext">As of latest reporting</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="metric-title">Cash Runway</div>
+                        <div class="metric-value">~3 Quarters</div>
+                        <div class="metric-subtext">At current burn rate</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="metric-title">Active Clinical Trials</div>
+                        <div class="metric-value">5</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="metric-title">Pipeline Assets</div>
+                        <div class="metric-value">3 Platforms</div>
+                        <div class="metric-subtext">Oncolytic Viruses, B-cell Immunotherapies, Checkpoint Inhibitors</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="financial-analysis" class="section">
+            <h2 class="section-title">Financial Analysis</h2>
+            <p class="section-intro">This section provides interactive tools to analyze Imugene's financial position, cash runway, and potential dilution scenarios.</p>
+            
+            <!-- Cash Flow Projection Tool -->
+            <div class="card">
+                <h3 class="card-title">Cash Flow Projection Tool <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Adjust parameters to see how they affect Imugene's cash runway. The current cash position is approximately $53M with a quarterly burn rate of ~$17M.</p>
+                
+                <div id="cash-flow-controls" class="control-panel"></div>
+                <div id="cash-flow-projection" class="chart-container"></div>
+                <button id="export-button" class="export-button">Export Chart</button>
+            </div>
+            
+            <!-- Institutional Ownership Tracker -->
+            <div class="card">
+                <h3 class="card-title">Institutional Ownership Tracker <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Track changes in institutional ownership over time, with focus on recent ASX300 index removal impact. Vanguard Australian Shares Index ETF held 98,116,864 shares (valued at $3.63M) before the index removal.</p>
+                
+                <div id="institutional-ownership-controls" class="control-panel"></div>
+                <div id="institutional-ownership-chart" class="chart-container"></div>
+            </div>
+            
+            <!-- Dilution Impact Calculator -->
+            <div class="card">
+                <h3 class="card-title">Dilution Impact Calculator <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Understand the potential impact of future capital raises on your ownership and share price. Imugene may need another capital raise within 6 months based on current cash runway.</p>
+                
+                <div id="dilution-calculator-controls" class="control-panel"></div>
+                <div id="dilution-calculator-chart" class="chart-container"></div>
+            </div>
+        </section>
+        
+        <section id="clinical-trials" class="section">
+            <h2 class="section-title">Clinical Trials</h2>
+            <p class="section-intro">Explore Imugene's clinical trial portfolio with interactive visualizations that allow you to filter by phase, indication, and timeline.</p>
+            
+            <!-- Clinical Trial Timeline -->
+            <div class="card">
+                <h3 class="card-title">Clinical Trial Timeline <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Interactive Gantt chart showing the timeline for Imugene's clinical trials. Filter by phase, indication, or drug candidate.</p>
+                
+                <div id="clinical-timeline-controls" class="control-panel"></div>
+                <div id="clinical-timeline-chart" class="chart-container"></div>
+            </div>
+            
+            <!-- Success Probability Calculator -->
+            <div class="card">
+                <h3 class="card-title">Success Probability Calculator <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Calculate the probability of success for Imugene's clinical trials based on historical success rates for similar indications and phases.</p>
+                
+                <div id="success-probability-controls" class="control-panel"></div>
+                <div id="success-probability-chart" class="chart-container"></div>
+            </div>
+        </section>
+        
+        <section id="technical-analysis" class="section">
+            <h2 class="section-title">Technical Analysis</h2>
+            <p class="section-intro">Interactive technical analysis tools to help you understand Imugene's price action, volume trends, and technical indicators.</p>
+            
+            <!-- Advanced Chart -->
+            <div class="card">
+                <h3 class="card-title">Advanced Technical Chart <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Fully interactive technical chart with customizable indicators, timeframes, and drawing tools.</p>
+                
+                <div id="technical-chart-controls" class="control-panel"></div>
+                <div id="technical-chart" class="chart-container"></div>
+            </div>
+            
+            <!-- Volume Profile -->
+            <div class="card">
+                <h3 class="card-title">Volume Profile Analysis <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Analyze trading volume distribution across price levels to identify key support and resistance zones.</p>
+                
+                <div id="volume-profile-controls" class="control-panel"></div>
+                <div id="volume-profile-chart" class="chart-container"></div>
+            </div>
+        </section>
+        
+        <section id="market-analysis" class="section">
+            <h2 class="section-title">Market Analysis</h2>
+            <p class="section-intro">Analyze Imugene's market positioning, institutional ownership, and analyst coverage.</p>
+            
+            <!-- Analyst Ratings Tracker -->
+            <div class="card">
+                <h3 class="card-title">Analyst Ratings & Price Targets <span class="interactive-badge">Coming Soon</span></h3>
+                <p class="visualization-description">Track changes in analyst ratings, price targets, and consensus estimates for Imugene over time.</p>
+                
+                <div id="analyst-ratings-controls" class="control-panel"></div>
+                <div id="analyst-ratings-chart" class="chart-container">
+                    <div class="coming-soon-placeholder">
+                        <i class="fas fa-tools fa-3x"></i>
+                        <p>This visualization is currently under development and will be available soon.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Institutional Ownership Breakdown -->
+            <div class="card">
+                <h3 class="card-title">Institutional Ownership Breakdown <span class="interactive-badge">Coming Soon</span></h3>
+                <p class="visualization-description">Detailed breakdown of institutional ownership with historical changes and comparison to peer companies.</p>
+                
+                <div id="institutional-breakdown-controls" class="control-panel"></div>
+                <div id="institutional-breakdown-chart" class="chart-container">
+                    <div class="coming-soon-placeholder">
+                        <i class="fas fa-tools fa-3x"></i>
+                        <p>This visualization is currently under development and will be available soon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="competitor-analysis" class="section">
+            <h2 class="section-title">Competitor Analysis</h2>
+            <p class="section-intro">Compare Imugene with its peers across various metrics including valuation, pipeline progress, and financial position.</p>
+            
+            <!-- Competitor Comparison Tool -->
+            <div class="card">
+                <h3 class="card-title">Competitor Comparison Tool <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Interactive tool to compare Imugene with selected competitors across multiple metrics.</p>
+                
+                <div id="competitor-comparison-controls" class="control-panel"></div>
+                <div class="competitor-grid">
+                    <div id="competitor-comparison-chart" class="chart-container"></div>
+                    <div id="competitor-metrics" class="company-details"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Imugene (IMU.AX) Investment Analysis - April 2025</p>
+            <p><a href="https://github.com/Hodge2Franklin/Imugene" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/visualization_dependency_manager.js"></script>
+    <script src="js/visualization_error_handler.js"></script>
+    <script src="js/interactive_cash_flow_visualization.js"></script>
+    <script src="js/visualization_loader.js"></script>
+    <script>
+        // Initialize diagnostics tool
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for all scripts to load
+            setTimeout(function() {
+                if (window.VisualizationDiagnostics) {
+                    console.log("Running visualization diagnostics...");
+                    window.VisualizationDiagnostics.runAll();
+                }
+            }, 3000);
+            // Add styling for coming soon placeholders
+            const style = document.createElement('style');
+            style.textContent = `
+                .coming-soon-placeholder {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 300px;
+                    background-color: #f5f5f5;
+                    border-radius: 8px;
+                    color: #666;
+                    text-align: center;
+                    padding: 20px;
+                }
+                
+                .coming-soon-placeholder i {
+                    margin-bottom: 20px;
+                    color: #3498db;
+                }
+                
+                .coming-soon-placeholder p {
+                    font-size: 16px;
+                    max-width: 400px;
+                }
+                
+                .interactive-badge {
+                    display: inline-block;
+                    padding: 3px 8px;
+                    background-color: #ff9800;
+                    color: white;
+                    border-radius: 12px;
+                    font-size: 12px;
+                    margin-left: 10px;
+                }
+                
+                .export-button {
+                    padding: 8px 15px;
+                    background-color: #4caf50;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    margin-top: 10px;
+                }
+                
+                .export-button:hover {
+                    background-color: #45a049;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+    <script src="js/chart_dependency_manager.js"></script>
+    <script src="js/container_naming_standardizer.js"></script>
+    <script src="js/static_visualization_renderer.js"></script>
+    <script src="js/static_fallback_images.js"></script>
+    <script src="js/visualization_verification.js"></script>
+</body>
+</html>

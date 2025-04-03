@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imugene (IMU.AX) Stock Analysis - Clinical Trials</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        .visualization-section {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .visualization-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .visualization-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .visualization-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .visualization-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .visualization-card-content {
+            padding: 15px;
+        }
+        .visualization-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1e293b;
+            font-size: 18px;
+        }
+        .visualization-card p {
+            color: #4b5563;
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .visualization-card .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        .visualization-card .btn:hover {
+            background-color: #2563eb;
+        }
+        .interactive-badge {
+            display: inline-block;
+            background-color: #10b981;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-title">
+            Imugene Analysis
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i> Overview</a></li>
+            <li><a href="visualizations.html"><i class="fas fa-chart-pie"></i> All Visualizations</a></li>
+            <li><a href="financial_analysis.html"><i class="fas fa-chart-line"></i> Financial Analysis</a></li>
+            <li><a href="clinical_trials.html" class="active"><i class="fas fa-flask"></i> Clinical Trials</a></li>
+            <li><a href="technical_analysis.html"><i class="fas fa-chart-bar"></i> Technical Analysis</a></li>
+            <li><a href="short_selling_analysis.html"><i class="fas fa-arrow-down"></i> Short Selling</a></li>
+            <li><a href="market_position.html"><i class="fas fa-building"></i> Competitor Analysis</a></li>
+            <li><a href="investment_recommendations.html"><i class="fas fa-lightbulb"></i> Investment Thesis</a></li>
+            <li><a href="options_trading.html"><i class="fas fa-exchange-alt"></i> Options Trading</a></li>
+            <li><a href="csl_case_study.html"><i class="fas fa-microscope"></i> CSL Case Study</a></li>
+            <li><a href="catalyst_calendar.html"><i class="fas fa-calendar-alt"></i> Catalyst Calendar</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Imugene (IMU) Stock Analysis - Clinical Trials</h1>
+            <div class="header-actions">
+                <button class="btn"><i class="fas fa-share-alt"></i> Share</button>
+                <button class="btn"><i class="fas fa-file-export"></i> Export</button>
+                <button class="btn btn-primary"><i class="fas fa-calendar-week"></i> This week</button>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2>Clinical Trial Visualizations</h2>
+            <p>Explore Imugene's clinical trial progress and drug pipeline through these interactive and static visualizations.</p>
+            
+            <div class="visualization-container">
+                <!-- Clinical Trial Timeline -->
+                <div class="visualization-card">
+                    <img src="graphs/output/clinical_trial_timeline.png" alt="Clinical Trial Timeline">
+                    <div class="visualization-card-content">
+                        <h3>Clinical Trial Timeline <span class="interactive-badge">Interactive</span></h3>
+                        <p>Interactive timeline of Imugene's clinical trials with filtering by phase and status.</p>
+                        <a href="graphs/output/interactive_clinical_trial_timeline.html" class="btn" target="_blank">View Interactive Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Drug Pipeline Comparison -->
+                <div class="visualization-card">
+                    <img src="graphs/output/drug_pipeline_comparison.png" alt="Drug Pipeline Comparison">
+                    <div class="visualization-card-content">
+                        <h3>Drug Pipeline Comparison <span class="interactive-badge">Interactive</span></h3>
+                        <p>Multi-view interactive visualization of Imugene's drug pipeline with NPV comparison and success probability analysis.</p>
+                        <a href="graphs/output/interactive_drug_pipeline.html" class="btn" target="_blank">View Interactive Chart</a>
+                    </div>
+                </div>
+                
+                <!-- Competitor Comparison -->
+                <div class="visualization-card">
+                    <img src="graphs/output/competitor_comparison.png" alt="Competitor Comparison">
+                    <div class="visualization-card-content">
+                        <h3>Competitor Pipeline Comparison</h3>
+                        <p>Multi-faceted comparison of Imugene's pipeline with key competitors across various metrics including R&D efficiency and clinical success rates.</p>
+                        <a href="graphs/output/competitor_comparison.html" class="btn" target="_blank">View Full Chart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Clinical Trial Timeline</h2>
+            <div class="card">
+                <div class="chart-container">
+                    <img src="img/clinical_trial_gantt_chart.png" alt="Imugene (IMU.AX) Clinical Trial Timeline" class="full-width-chart">
+                </div>
+                
+                <h3 class="card-subtitle">Development Progress</h3>
+                <p>The Gantt chart above shows Imugene's clinical trial timeline across all drug candidates, with key milestones expected in 2025-2027.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Drug Pipeline Overview</h2>
+            <div class="card">
+                <div class="chart-container">
+                    <img src="img/npv_scenarios.png" alt="Risk-Adjusted NPV by Drug Candidate" class="full-width-chart">
+                </div>
+                
+                <h3 class="card-subtitle">Risk-Adjusted NPV by Drug Candidate</h3>
+                <p>This chart shows the risk-adjusted Net Present Value (NPV) for each of Imugene's drug candidates under conservative, expected, and optimistic scenarios.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Azer-cel (DLBCL)</h2>
+            <div class="card">
+                <h3 class="card-subtitle">Lead Drug Candidate</h3>
+                <p>Azer-cel is Imugene's most advanced and valuable drug candidate, targeting Diffuse Large B-Cell Lymphoma (DLBCL).</p>
+                
+                <h4 class="card-subtitle">Key Information:</h4>
+                <ul>
+                    <li><strong>Current Stage:</strong> Phase 1b (completed with positive results)</li>
+                    <li><strong>Next Milestone:</strong> Phase 2/3 trial initiation (Q3 2025)</li>
+                    <li><strong>Expected Completion:</strong> Late 2027</li>
+                    <li><strong>Risk-Adjusted NPV:</strong> AUD 63M (expected case)</li>
+                    <li><strong>Peak Sales Potential:</strong> AUD 1.2B annually (if approved)</li>
+                </ul>
+                
+                <h4 class="card-subtitle">Recent Results:</h4>
+                <p>Phase 1b results showed a 60% improved efficacy when combined with standard-of-care treatments, with manageable safety profile. The data suggests potential for breakthrough therapy designation.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">HER-Vaxx (Gastric Cancer)</h2>
+            <div class="card">
+                <h3 class="card-subtitle">B-Cell Immunotherapy</h3>
+                <p>HER-Vaxx is a B-cell immunotherapy targeting HER2/neu receptors in gastric cancer.</p>
+                
+                <h4 class="card-subtitle">Key Information:</h4>
+                <ul>
+                    <li><strong>Current Stage:</strong> Phase 2 completed</li>
+                    <li><strong>Next Milestone:</strong> Partnership discussions for Phase 3</li>
+                    <li><strong>Risk-Adjusted NPV:</strong> AUD 33M (expected case)</li>
+                    <li><strong>Peak Sales Potential:</strong> AUD 500M annually (if approved)</li>
+                </ul>
+                
+                <h4 class="card-subtitle">Recent Results:</h4>
+                <p>Phase 2 results showed a median Overall Survival (OS) of 14.2 months vs. 8.8 months for standard of care, representing a 61% improvement. The data has attracted interest from potential partners for Phase 3 development.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">CF33/VAXINIA Programs</h2>
+            <div class="card">
+                <h3 class="card-subtitle">Oncolytic Virus Platform</h3>
+                <p>CF33/VAXINIA is Imugene's oncolytic virus platform with multiple programs targeting different cancer types.</p>
+                
+                <h4 class="card-subtitle">Bile Tract Program:</h4>
+                <ul>
+                    <li><strong>Current Stage:</strong> Phase 1 (ongoing)</li>
+                    <li><strong>Next Milestone:</strong> Interim data (Q4 2025)</li>
+                    <li><strong>Risk-Adjusted NPV:</strong> AUD 11M (expected case)</li>
+                </ul>
+                
+                <h4 class="card-subtitle">Solid Tumors Program:</h4>
+                <ul>
+                    <li><strong>Current Stage:</strong> Phase 1 (ongoing)</li>
+                    <li><strong>Next Milestone:</strong> Completion of dose escalation (Q2 2026)</li>
+                    <li><strong>Risk-Adjusted NPV:</strong> AUD 11M (expected case)</li>
+                </ul>
+                
+                <h4 class="card-subtitle">Recent Results:</h4>
+                <p>Preliminary Phase 1 data has shown tumor shrinkage in 3 out of 10 evaluable patients with advanced solid tumors who had failed prior therapies. The safety profile remains favorable with manageable side effects.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">PD1-Vaxx (NSCLC)</h2>
+            <div class="card">
+                <h3 class="card-subtitle">Checkpoint Immunotherapy</h3>
+                <p>PD1-Vaxx is a B-cell immunotherapy targeting PD-1 in Non-Small Cell Lung Cancer (NSCLC).</p>
+                
+                <h4 class="card-subtitle">Key Information:</h4>
+                <ul>
+                    <li><strong>Current Stage:</strong> Phase 1 (ongoing)</li>
+                    <li><strong>Next Milestone:</strong> Phase 1b expansion cohort data (Q1 2026)</li>
+                    <li><strong>Risk-Adjusted NPV:</strong> AUD 8M (expected case)</li>
+                    <li><strong>Peak Sales Potential:</strong> AUD 300M annually (if approved)</li>
+                </ul>
+                
+                <h4 class="card-subtitle">Recent Results:</h4>
+                <p>Phase 1 data has shown antibody responses in 85% of patients with evidence of T-cell activation. Two patients have shown partial responses, and four have shown stable disease.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">NeoPOLEM (MSI-high CRC)</h2>
+            <div class="card">
+                <h3 class="card-subtitle">Combination Therapy</h3>
+                <p>NeoPOLEM is a combination therapy targeting Microsatellite Instability-High Colorectal Cancer (MSI-high CRC).</p>
+                
+                <h4 class="card-subtitle">Key Information:</h4>
+                <ul>
+                    <li><strong>Current Stage:</strong> Phase 2 (ongoing)</li>
+                    <li><strong>Next Milestone:</strong> Interim data (Q3 2025)</li>
+                    <li><strong>Risk-Adjusted NPV:</strong> AUD 19M (expected case)</li>
+                    <li><strong>Peak Sales Potential:</strong> AUD 450M annually (if approved)</li>
+                </ul>
+                
+                <h4 class="card-subtitle">Recent Results:</h4>
+                <p>Early Phase 2 data has shown promising activity with a 40% objective response rate in the first 15 patients. The trial is continuing to enroll patients with final data expected in 2026.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Clinical Trial Catalysts</h2>
+            <div class="card">
+                <h3 class="card-subtitle">Upcoming Milestones</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Drug Candidate</th>
+                                <th>Event</th>
+                                <th>Potential Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Q3 2025</td>
+                                <td>Azer-cel</td>
+                                <td>Phase 2/3 initiation</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>Q3 2025</td>
+                                <td>NeoPOLEM</td>
+                                <td>Phase 2 interim data</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Q4 2025</td>
+                                <td>CF33/VAXINIA (Bile Tract)</td>
+                                <td>Phase 1 interim data</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Q1 2026</td>
+                                <td>PD1-Vaxx</td>
+                                <td>Phase 1b expansion data</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Q2 2026</td>
+                                <td>HER-Vaxx</td>
+                                <td>Partnership announcement</td>
+                                <td>High</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Imugene (IMU.AX) Investment Analysis - April 2025</p>
+            <p><a href="https://github.com/Hodge2Franklin/Imugene" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
