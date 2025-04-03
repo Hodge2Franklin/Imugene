@@ -1,0 +1,92 @@
+[
+  {
+    "drug": "Azer-cel",
+    "indication": "DLBCL",
+    "phase": "Phase 1b",
+    "status": "Completed",
+    "start_date": "2022-06-01",
+    "end_date": "2023-09-15",
+    "results": "Positive efficacy signals with 60% improved response rate",
+    "next_milestone": "Phase 2/3 initiation in Q3 2025"
+  },
+  {
+    "drug": "Azer-cel",
+    "indication": "DLBCL",
+    "phase": "Phase 2/3",
+    "status": "Planned",
+    "start_date": "2025-08-01",
+    "end_date": "2027-12-31",
+    "results": "Pending",
+    "next_milestone": "Potential BLA submission in 2028"
+  },
+  {
+    "drug": "HER-Vaxx",
+    "indication": "Gastric Cancer",
+    "phase": "Phase 2",
+    "status": "Completed",
+    "start_date": "2021-03-15",
+    "end_date": "2023-05-30",
+    "results": "Median OS of 14.2 months vs. 8.8 months for standard of care",
+    "next_milestone": "Partnership discussions for Phase 3"
+  },
+  {
+    "drug": "HER-Vaxx",
+    "indication": "Gastric Cancer",
+    "phase": "Phase 3",
+    "status": "Planned",
+    "start_date": "2026-01-15",
+    "end_date": "2028-06-30",
+    "results": "Pending",
+    "next_milestone": "Potential approval in 2029"
+  },
+  {
+    "drug": "CF33/VAXINIA",
+    "indication": "Bile Tract Cancer",
+    "phase": "Phase 1",
+    "status": "Ongoing",
+    "start_date": "2023-09-01",
+    "end_date": "2025-12-15",
+    "results": "Interim data expected Q4 2025",
+    "next_milestone": "Phase 2 decision in Q1 2026"
+  },
+  {
+    "drug": "CF33/VAXINIA",
+    "indication": "Solid Tumors",
+    "phase": "Phase 1",
+    "status": "Ongoing",
+    "start_date": "2023-04-15",
+    "end_date": "2026-02-28",
+    "results": "Preliminary data shows tumor shrinkage in 3/10 patients",
+    "next_milestone": "Completion of dose escalation in Q2 2026"
+  },
+  {
+    "drug": "PD1-Vaxx",
+    "indication": "NSCLC",
+    "phase": "Phase 1",
+    "status": "Ongoing",
+    "start_date": "2022-11-01",
+    "end_date": "2024-12-31",
+    "results": "85% antibody response rate with T-cell activation",
+    "next_milestone": "Phase 1b expansion cohort data in Q1 2026"
+  },
+  {
+    "drug": "PD1-Vaxx",
+    "indication": "NSCLC",
+    "phase": "Phase 1b",
+    "status": "Planned",
+    "start_date": "2025-01-15",
+    "end_date": "2026-03-31",
+    "results": "Pending",
+    "next_milestone": "Phase 2 decision in Q2 2026"
+  },
+  {
+    "drug": "NeoPOLEM",
+    "indication": "MSI-high CRC",
+    "phase": "Phase 2",
+    "status": "Ongoing",
+    "start_date": "2023-07-01",
+    "end_date": "2025-09-30",
+    "results": "40% objective response rate in first 15 patients",
+    "next_milestone": "Interim data in Q3 2025"
+  }
+]

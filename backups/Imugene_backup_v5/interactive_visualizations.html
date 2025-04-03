@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imugene Interactive Visualizations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/interactive.css">
+    <link rel="stylesheet" href="css/swot-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        /* Additional styles for interactive elements */
+        .visualization-container {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .control-panel {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+        
+        .control-group {
+            margin-bottom: 10px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .checkbox-label {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .timeframe-button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .timeframe-button.active {
+            background-color: #2196f3;
+            color: white;
+            border-color: #2196f3;
+        }
+        
+        .indicator-label {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .event-list {
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 5px;
+        }
+        
+        .event-item {
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+        
+        .event-item:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .event-date {
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .event-label {
+            font-size: 14px;
+        }
+        
+        .event-description {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .company-details {
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .export-button {
+            padding: 8px 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .export-button:hover {
+            background-color: #45a049;
+        }
+        
+        .visualization-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .visualization-description {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .interactive-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background-color: #ff9800;
+            color: white;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        /* Two-column layout for competitor comparison */
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .competitor-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Load D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Load Lightweight Charts for technical analysis -->
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <!-- Load Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Load jQuery for DOM manipulation -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-title">
+            Imugene Analysis
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i> Overview</a></li>
+            <li><a href="visualizations.html"><i class="fas fa-chart-pie"></i> All Visualizations</a></li>
+            <li><a href="financial_analysis.html"><i class="fas fa-chart-line"></i> Financial Analysis</a></li>
+            <li><a href="clinical_trials.html"><i class="fas fa-flask"></i> Clinical Trials</a></li>
+            <li><a href="technical_analysis.html"><i class="fas fa-chart-bar"></i> Technical Analysis</a></li>
+            <li><a href="short_selling_analysis.html"><i class="fas fa-arrow-down"></i> Short Selling</a></li>
+            <li><a href="market_position.html"><i class="fas fa-building"></i> Competitor Analysis</a></li>
+            <li><a href="investment_recommendations.html"><i class="fas fa-lightbulb"></i> Investment Thesis</a></li>
+            <li><a href="options_trading.html"><i class="fas fa-exchange-alt"></i> Options Trading</a></li>
+            <li><a href="csl_case_study.html"><i class="fas fa-microscope"></i> CSL Case Study</a></li>
+            <li><a href="catalyst_calendar.html"><i class="fas fa-calendar-alt"></i> Catalyst Calendar</a></li>
+            <li><a href="interactive_visualizations.html" class="active"><i class="fas fa-chart-pie"></i> Interactive Visualizations</a></li>
+        </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <section id="overview">
+            <h2 class="section-title">Overview</h2>
+            <p>Welcome to the interactive analysis dashboard for Imugene Limited (ASX:IMU). This dashboard provides comprehensive visualizations and interactive tools to help you understand Imugene's financial position, clinical trial progress, technical analysis, and competitive landscape.</p>
+            
+            <p>Use the navigation menu to explore different sections of the analysis. Each section contains interactive visualizations that allow you to customize parameters, filter data, and gain deeper insights into Imugene's performance and potential.</p>
+            
+            <div class="card">
+                <h3 class="card-title">Key Metrics Overview</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h4>Current Share Price</h4>
+                        <p class="metric-value">$0.030</p>
+                        <p class="metric-change negative">-5.2% (1 month)</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Market Cap</h4>
+                        <p class="metric-value">$150M</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Cash Position</h4>
+                        <p class="metric-value">$53M</p>
+                        <p class="metric-note">As of latest reporting</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Cash Runway</h4>
+                        <p class="metric-value">~3 Quarters</p>
+                        <p class="metric-note">At current burn rate</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Active Clinical Trials</h4>
+                        <p class="metric-value">5</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Pipeline Assets</h4>
+                        <p class="metric-value">3 Platforms</p>
+                        <p class="metric-note">Oncolytic Viruses, B-cell Immunotherapies, Checkpoint Inhibitors</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="financial-analysis">
+            <h2 class="section-title">Financial Analysis</h2>
+            <p>This section provides interactive tools to analyze Imugene's financial position, cash runway, and potential dilution scenarios.</p>
+            
+            <!-- Cash Flow Projection Tool -->
+            <div class="card">
+                <h3 class="card-title">Cash Flow Projection Tool <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Adjust parameters to see how they affect Imugene's cash runway. The current cash position is approximately $53M with a quarterly burn rate of ~$17M.</p>
+                
+                <div id="cash-flow-controls" class="control-panel"></div>
+                <div id="cash-flow-projection"></div>
+                <button id="export-button" class="export-button">Export Chart</button>
+            </div>
+            
+            <!-- Institutional Ownership Tracker -->
+            <div class="card">
+                <h3 class="card-title">Institutional Ownership Tracker <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Track changes in institutional ownership over time, with focus on recent ASX300 index removal impact. Vanguard Australian Shares Index ETF held 98,116,864 shares (valued at $3.63M) before the index removal.</p>
+                
+                <div id="institutional-ownership-controls" class="control-panel"></div>
+                <div id="institutional-ownership-chart"></div>
+            </div>
+            
+            <!-- Dilution Impact Calculator -->
+            <div class="card">
+                <h3 class="card-title">Dilution Impact Calculator <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Understand the potential impact of future capital raises on your ownership and share price. Imugene may need another capital raise within 6 months based on current cash runway.</p>
+                
+                <div id="dilution-calculator-controls" class="control-panel"></div>
+                <div id="dilution-calculator-chart"></div>
+            </div>
+        </section>
+        
+        <section id="clinical-trials">
+            <h2 class="section-title">Clinical Trials</h2>
+            <p>This section provides interactive visualizations of Imugene's clinical trial progress, drug candidates, and potential outcomes.</p>
+            
+            <!-- Clinical Trial Timeline Tracker -->
+            <div class="card">
+                <h3 class="card-title">Clinical Trial Timeline Tracker <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Track the progress of Imugene's clinical trials with real-time status updates and projected milestones. First dose level has been cleared for IV combination arm of onCARlytics trial.</p>
+                
+                <div id="clinical-trial-controls" class="control-panel"></div>
+                <div id="clinical-trial-timeline"></div>
+            </div>
+            
+            <!-- Drug Pipeline Visualization -->
+            <div class="card">
+                <h3 class="card-title">Drug Pipeline Visualization <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Explore Imugene's drug pipeline with detailed information on each candidate's development stage, target indication, and potential market size.</p>
+                
+                <div id="drug-pipeline-controls" class="control-panel"></div>
+                <div id="drug-pipeline-visualization"></div>
+            </div>
+            
+            <!-- Clinical Trial Success Probability -->
+            <div class="card">
+                <h3 class="card-title">Clinical Trial Success Probability</h3>
+                <p class="visualization-description">Understand the historical success rates for oncology drugs in clinical trials and how they apply to Imugene's pipeline.</p>
+                
+                <div id="success-probability-chart"></div>
+            </div>
+        </section>
+        
+        <section id="technical-analysis">
+            <h2 class="section-title">Technical Analysis</h2>
+            <p>This section provides interactive tools for technical analysis of Imugene's share price performance.</p>
+            
+            <!-- Technical Chart Analysis Tool -->
+            <div class="card">
+                <h3 class="card-title">Technical Chart Analysis Tool <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Analyze Imugene's share price with customizable technical indicators and timeframes. The chart includes overlay of key events like ASX 200 inclusion/removal and institutional selling events.</p>
+                
+                <div id="technical-chart-controls" class="control-panel">
+                    <div class="control-group">
+                        <label>Timeframe:</label>
+                        <button class="timeframe-button active" data-timeframe="daily">Daily</button>
+                        <button class="timeframe-button" data-timeframe="weekly">Weekly</button>
+                        <button class="timeframe-button" data-timeframe="monthly">Monthly</button>
+                    </div>
+                    <div class="control-group">
+                        <label>Technical Indicators:</label>
+                        <label class="indicator-label">
+                            <input type="checkbox" data-indicator="sma20" checked> SMA 20
+                        </label>
+                        <label class="indicator-label">
+                            <input type="checkbox" data-indicator="sma50"> SMA 50
+                        </label>
+                        <label class="indicator-label">
+                            <input type="checkbox" data-indicator="sma200"> SMA 200
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label>Key Events:</label>
+                        <div class="event-list">
+                            <div class="event-item" data-date="2024-12-15">
+                                <div class="event-date">Dec 15, 2024</div>
+                                <div class="event-label">ASX 300 Removal</div>
+                                <div class="event-description">Imugene removed from ASX 300 index, triggering institutional selling</div>
+                            </div>
+                            <div class="event-item" data-date="2025-02-10">
+                                <div class="event-date">Feb 10, 2025</div>
+                                <div class="event-label">Clinical Trial Update</div>
+                                <div class="event-description">First dose level cleared for IV combination arm of onCARlytics trial</div>
+                            </div>
+                            <div class="event-item" data-date="2025-03-05">
+                                <div class="event-date">Mar 5, 2025</div>
+                                <div class="event-label">Capital Raise</div>
+                                <div class="event-description">$45M capital raise announced at $0.055 per share</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="technical-chart"></div>
+            </div>
+            
+            <!-- Volume Analysis -->
+            <div class="card">
+                <h3 class="card-title">Volume Analysis <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Analyze trading volume patterns and their correlation with price movements and key events.</p>
+                
+                <div id="volume-analysis-controls" class="control-panel"></div>
+                <div id="volume-analysis-chart"></div>
+            </div>
+        </section>
+        
+        <section id="competitor-analysis">
+            <h2 class="section-title">Competitor Analysis</h2>
+            <p>This section provides interactive tools to compare Imugene with its competitors in the immuno-oncology space.</p>
+            
+            <!-- Immuno-Oncology Landscape Map -->
+            <div class="card">
+                <h3 class="card-title">Immuno-Oncology Landscape Map <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Explore Imugene's position within the broader immuno-oncology landscape. Compare companies across dimensions of pipeline stage, cash runway, and market cap.</p>
+                
+                <div id="landscape-controls" class="control-panel">
+                    <div class="control-group">
+                        <label>Filter by Technology Focus:</label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" data-filter="oncolytic" checked> Oncolytic Viruses
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" data-filter="checkpoint" checked> Checkpoint Inhibitors
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" data-filter="cell" checked> Cell Therapies
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" data-filter="vaccine" checked> Cancer Vaccines
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="competitor-grid">
+                    <div id="landscape-map"></div>
+                    <div id="company-details" class="company-details">
+                        <h4>Select a company to view details</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pipeline Comparison -->
+            <div class="card">
+                <h3 class="card-title">Pipeline Comparison <span class="interactive-badge">Interactive</span></h3>
+                <p class="visualization-description">Compare Imugene's clinical pipeline with key competitors across different cancer indications and development stages.</p>
+                
+                <div id="pipeline-comparison-controls" class="control-panel"></div>
+                <div id="pipeline-comparison-chart"></div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Imugene (IMU.AX) Interactive Analysis Dashboard - April 2025</p>
+            <p><a href="https://github.com/Hodge2Franklin/Imugene" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <!-- Load main JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Load interactive visualization scripts -->
+    <script src="js/interactive_cash_flow_visualization.js"></script>
+    <script src="js/interactive_clinical_trial_tracker.js"></script>
+    <script src="js/interactive_technical_chart_analysis.js"></script>
+    <script src="js/interactive_competitor_comparison.js"></script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imugene - Enhanced Technical Analysis</title>
+    <link rel="stylesheet" href="css/unified-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/bollinger-bands.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/rsi.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/macd.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="https://www.imugene.com/images/logo.png" alt="Imugene Logo">
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i> Overview</a></li>
+            <li><a href="visualizations.html"><i class="fas fa-chart-pie"></i> All Visualizations</a></li>
+            <li><a href="interactive_visualizations.html"><i class="fas fa-sliders-h"></i> Interactive Tools</a></li>
+            <li><a href="financial_analysis.html"><i class="fas fa-chart-line"></i> Financial Analysis</a></li>
+            <li><a href="clinical_trials.html"><i class="fas fa-flask"></i> Clinical Trials</a></li>
+            <li><a href="technical_analysis_enhanced.html" class="active"><i class="fas fa-chart-bar"></i> Technical Analysis</a></li>
+            <li><a href="short_selling_analysis.html"><i class="fas fa-arrow-down"></i> Short Selling</a></li>
+            <li><a href="market_position.html"><i class="fas fa-building"></i> Competitor Analysis</a></li>
+            <li><a href="investment_recommendations.html"><i class="fas fa-lightbulb"></i> Investment Thesis</a></li>
+            <li><a href="options_trading.html"><i class="fas fa-exchange-alt"></i> Options Trading</a></li>
+            <li><a href="csl_case_study.html"><i class="fas fa-microscope"></i> CSL Case Study</a></li>
+            <li><a href="catalyst_calendar.html"><i class="fas fa-calendar-alt"></i> Catalyst Calendar</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Enhanced Technical Analysis</h1>
+            <p>Interactive analysis of Imugene's share price performance with advanced technical indicators</p>
+        </header>
+
+        <div class="technical-analysis-container">
+            <!-- Introduction Section -->
+            <div class="intro-section">
+                <h2 class="section-title">Imugene's Technical Journey</h2>
+                <p class="intro-text">
+                    Technical analysis helps us understand market sentiment and potential price movements based on historical trading patterns. For biotech companies like Imugene, technical analysis can reveal how the market is responding to clinical developments and company announcements.
+                </p>
+                <p class="intro-text">
+                    This interactive analysis will guide you through Imugene's price action, volume trends, and market positioning to help you make more informed investment decisions.
+                </p>
+                
+                <div class="key-metrics-container">
+                    <div class="key-metric">
+                        <div class="metric-title">Current Price</div>
+                        <div class="metric-value">$0.030</div>
+                        <div class="metric-change negative">-5.2% (1M)</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="metric-title">Technical Trend</div>
+                        <div class="metric-value">Bearish</div>
+                        <div class="metric-subtext">Below all major MAs</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="metric-title">Key Support</div>
+                        <div class="metric-value">$0.030</div>
+                        <div class="metric-subtext">Testing now</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="metric-title">Key Resistance</div>
+                        <div class="metric-value">$0.047</div>
+                        <div class="metric-subtext">Recent high</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price Action Section -->
+            <div class="price-action-section">
+                <h2 class="section-title">Price Action: The Story So Far</h2>
+                <p class="section-intro">
+                    Imugene's share price tells a story of market sentiment and investor expectations. The interactive chart below reveals key patterns and events that have shaped its recent performance.
+                </p>
+                
+                <div class="chart-controls">
+                    <div class="control-group">
+                        <span class="control-label">Technical Indicators:</span>
+                        <div class="indicator-buttons">
+                            <button class="indicator-button active" data-indicator="sma-20" style="border-color: #f39c12;">20-Day SMA</button>
+                            <button class="indicator-button active" data-indicator="sma-50" style="border-color: #3498db;">50-Day SMA</button>
+                            <button class="indicator-button active" data-indicator="sma-200" style="border-color: #9b59b6;">200-Day SMA</button>
+                            <button class="indicator-button" data-indicator="bollinger" style="border-color: #2c3e50;">Bollinger Bands</button>
+                            <button class="indicator-button" data-indicator="rsi" style="border-color: #e74c3c;">RSI</button>
+                            <button class="indicator-button" data-indicator="macd" style="border-color: #27ae60;">MACD</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <span class="control-label">Annotations:</span>
+                        <div class="annotation-buttons">
+                            <button class="annotation-button active" data-annotation="events">Key Events</button>
+                            <button class="annotation-button active" data-annotation="patterns">Chart Patterns</button>
+                            <button class="annotation-button active" data-annotation="levels">Support/Resistance</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="main-price-chart" class="chart-container">
+                    <!-- Interactive chart will be rendered here -->
+                </div>
+                
+                <div class="chart-insights">
+                    <h3 class="insights-title">Key Insights</h3>
+                    <ul class="insights-list">
+                        <li class="insight-item">
+                            <span class="insight-icon">📉</span>
+                            <span class="insight-text">Imugene is in a <strong>downtrend</strong>, trading below all major moving averages since early 2024.</span>
+                        </li>
+                        <li class="insight-item">
+                            <span class="insight-icon">🔍</span>
+                            <span class="insight-text">The stock is currently testing a <strong>critical support level</strong> at $0.030, which has held since January 2025.</span>
+                        </li>
+                        <li class="insight-item">
+                            <span class="insight-icon">📊</span>
+                            <span class="insight-text">A <strong>double bottom pattern</strong> may be forming, which could signal a potential reversal if confirmed.</span>
+                        </li>
+                        <li class="insight-item">
+                            <span class="insight-icon">📅</span>
+                            <span class="insight-text">Clinical trial announcements in March and June 2024 created significant but temporary price increases.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pattern Recognition Section -->
+            <div class="pattern-recognition-section">
+                <h2 class="section-title">Pattern Recognition: Finding Order in Chaos</h2>
+                <p class="section-intro">
+                    Our algorithmic pattern recognition system identifies technical patterns that may signal potential future price movements. These patterns represent historical formations that traders often use to make decisions.
+                </p>
+                
+                <div id="pattern-recognition-chart" class="chart-container">
+                    <!-- Pattern recognition chart will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Volume Analysis Section -->
+            <div class="volume-analysis-section">
+                <h2 class="section-title">Volume: The Force Behind Price Movements</h2>
+                <p class="section-intro">
+                    Trading volume reveals the conviction behind price movements. Strong volume confirms trends, while divergences can signal potential reversals.
+                </p>
+                
+                <div id="volume-heat-map" class="chart-container">
+                    <!-- Volume heat map will be rendered here -->
+                </div>
+                
+                <div class="volume-metrics">
+                    <div class="volume-metric">
+                        <div class="metric-title">Average Daily Volume (3 months)</div>
+                        <div class="metric-value">5.2 million shares</div>
+                    </div>
+                    <div class="volume-metric">
+                        <div class="metric-title">Average Daily Volume (10 days)</div>
+                        <div class="metric-value">3.8 million shares</div>
+                        <div class="metric-change negative">-27% vs 3-month average</div>
+                    </div>
+                    <div class="volume-metric">
+                        <div class="metric-title">Volume Trend</div>
+                        <div class="metric-value">Declining</div>
+                    </div>
+                </div>
+                
+                <div class="volume-insights">
+                    <h3 class="insights-title">Volume Insights</h3>
+                    <p class="insight-text">
+                        The declining volume trend suggests diminishing market interest, which is typical for stocks in a prolonged downtrend. However, this could also indicate a potential bottoming process if accompanied by price stabilization.
+                    </p>
+                    <p class="insight-text">
+                        Notice the volume spikes (highlighted in red on the heat map) coinciding with company announcements and clinical trial updates. These represent periods of high investor interest and can often precede significant price movements.
+                    </p>
+                    <div class="educational-note">
+                        <div class="note-title">📚 Understanding Volume</div>
+                        <p class="note-text">
+                            In technical analysis, volume confirms price movements. High volume during price increases suggests strong buying pressure, while high volume during declines indicates strong selling pressure. Low volume during price movements suggests the trend may lack conviction and could reverse.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volatility Analysis Section -->
+            <div class="volatility-analysis-section">
+                <h2 class="section-title">Volatility Analysis: Measuring Market Uncertainty</h2>
+                <p class="section-intro">
+                    Volatility measures the magnitude of price fluctuations over time. High volatility indicates uncertainty and potential for large price swings, while low volatility suggests stability and consolidation.
+                </p>
+                
+                <div id="volatility-analysis-chart" class="chart-container">
+                    <!-- Volatility analysis chart will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Relative Strength Analysis Section -->
+            <div class="relative-strength-section">
+                <h2 class="section-title">Market Context: How Imugene Compares</h2>
+                <p class="section-intro">
+                    Understanding how Imugene performs relative to the broader market and its peers provides crucial context for technical analysis.
+                </p>
+                
+                <div id="comparative-chart" class="chart-container">
+                    <!-- Comparative performance chart will be rendered here -->
+                </div>
+                
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <div class="metric-title">vs. ASX 200 (12 months)</div>
+                        <div class="metric-value negative">-65%</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill negative" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="metric-title">vs. ASX Healthcare Index (12 months)</div>
+                        <div class="metric-value negative">-58%</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill negative" style="width: 58%;"></div>
+                        </div>
+                    </div>
+                    <div class="comparison-metric">
+                        <div class="metric-title">vs. ASX Biotech Peers (12 months)</div>
+                        <div class="metric-value negative">-42%</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill negative" style="width: 42%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative-strength-insights">
+                    <h3 class="insights-title">Relative Performance Insights</h3>
+                    <p class="insight-text">
+                        Imugene has underperformed both the broader ASX 200 index and the ASX Healthcare sector over the past 12 months. This significant underperformance reflects both sector-specific challenges and company-specific factors, including clinical trial timelines and cash burn concerns.
+                    </p>
+                    <p class="insight-text">
+                        The closer performance to biotech peers (-42%) versus the broader market (-65%) suggests that some of this underperformance is sector-related rather than entirely company-specific.
+                    </p>
+                    <div class="educational-note">
+                        <div class="note-title">📚 Relative Strength</div>
+                        <p class="note-text">
+                            Relative strength compares a stock's performance to a benchmark index or peer group. Outperformance may indicate stronger investor confidence in a company's prospects, while underperformance could signal concerns specific to the company or reduced interest in its sector.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Correlation Analysis Section -->
+            <div class="correlation-analysis-section">
+                <h2 class="section-title">Correlation Analysis: Understanding Relationships</h2>
+                <p class="section-intro">
+                    Correlation analysis reveals how Imugene's stock price moves in relation to other market factors. Strong correlations can help identify external influences on the stock's performance.
+                </p>
+                
+                <div id="correlation-analysis-chart" class="chart-container">
+                    <!-- Correlation analysis chart will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Sentiment Analysis Section -->
+            <div class="sentiment-analysis-section">
+                <h2 class="section-title">Market Sentiment: The Emotional Driver</h2>
+                <p class="section-intro">
+                    Market sentiment reflects the collective emotions and opinions of investors. Sentiment analysis tracks social media, news, and analyst opinions to gauge market perception of Imugene.
+                </p>
+                
+                <div id="sentiment-analysis-chart" class="chart-container">
+                    <!-- Sentiment analysis chart will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Future Scenarios Section -->
+            <div class="scenario-section">
+                <h2 class="section-title">What Could Happen Next? Exploring Scenarios</h2>
+                <p class="section-intro">
+                    Based on technical analysis and potential catalysts, we can explore different scenarios for Imugene's share price. Use the interactive controls below to create your own projections.
+                </p>
+                
+                <div id="scenario-builder-chart" class="chart-container">
+                    <!-- Scenario builder will be rendered here -->
+                </div>
+                
+                <div id="scenario-controls" class="controls-container">
+                    <!-- Scenario controls will be rendered here -->
+                </div>
+                
+                <div class="scenario-insights">
+                    <h3 class="insights-title">Scenario Insights</h3>
+                    <div class="scenario-insight">
+                        <h4 class="scenario-title">Bullish Case</h4>
+                        <p class="scenario-text">
+                            In the bullish scenario, Imugene confirms support at the current level and begins an uptrend, potentially breaking above the 50-day moving average within 3 months. This could be triggered by positive clinical trial results or strategic partnerships.
+                        </p>
+                    </div>
+                    <div class="scenario-insight">
+                        <h4 class="scenario-title">Base Case</h4>
+                        <p class="scenario-text">
+                            The base case suggests continued consolidation around current levels with gradual improvement over 6-12 months as the company progresses its clinical pipeline. Price would likely remain below the 200-day moving average but could establish a series of higher lows.
+                        </p>
+                    </div>
+                    <div class="scenario-insight">
+                        <h4 class="scenario-title">Bearish Case</h4>
+                        <p class="scenario-text">
+                            The bearish scenario involves breaking below the $0.030 support level, potentially leading to a new downleg targeting $0.025 or lower. This could be triggered by clinical setbacks, increased cash burn, or broader market weakness.
+                        </p>
+                    </div>
+                    <div class="educational-note">
+                        <div class="note-title">📚 Technical-Based Forecasting</div>
+                        <p class="note-text">
+                            Technical analysis can help identify potential price targets based on chart patterns, support/resistance levels, and historical behavior. However, it's important to remember that biotech stocks like Imugene can experience sudden price movements based on clinical trial results and regulatory decisions that may override technical factors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Predictive Modeling Section -->
+            <div class="predictive-modeling-section">
+                <h2 class="section-title">Predictive Modeling: Statistical Projections</h2>
+                <p class="section-intro">
+                    Statistical models can help project potential price paths based on historical patterns. These models incorporate linear regression, moving averages, and volatility measures to create a range of possible outcomes.
+                </p>
+                
+                <div id="predictive-modeling-chart" class="chart-container">
+                    <!-- Predictive modeling chart will be rendered here -->
+                </div>
+                
+                <div id="predictive-controls" class="controls-container">
+                    <!-- Predictive modeling controls will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Trading Strategy Section -->
+            <div class="strategy-section">
+                <h2 class="section-title">Trading Strategy: Putting Analysis into Action</h2>
+                <p class="section-intro">
+                    Technical analysis is most valuable when it informs a clear trading strategy. Based on the current technical picture, here are potential approaches for different investor types.
+                </p>
+                
+                <div class="strategy-cards">
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <h3 class="strategy-title">Short-Term Traders (1-3 months)</h3>
+                            <div class="strategy-rating neutral">Neutral with Bearish Bias</div>
+                        </div>
+                        <div class="strategy-content">
+                            <p class="strategy-text">
+                                Current technical indicators suggest caution for short-term traders. The stock is in a downtrend below all major moving averages but is testing a key support level.
+                            </p>
+                            <div class="strategy-recommendation">
+                                <strong>Recommendation:</strong> Consider waiting for confirmation of a bounce from support before establishing new positions. Set tight stop losses below $0.028 to manage risk.
+                            </div>
+                            <div class="strategy-levels">
+                                <div class="level">
+                                    <span class="level-label">Entry Point:</span>
+                                    <span class="level-value">Confirmation of support at $0.030</span>
+                                </div>
+                                <div class="level">
+                                    <span class="level-label">Stop Loss:</span>
+                                    <span class="level-value">$0.028 (-7%)</span>
+                                </div>
+                                <div class="level">
+                                    <span class="level-label">Target:</span>
+                                    <span class="level-value">$0.035 (+17%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <h3 class="strategy-title">Medium-Term Traders (3-12 months)</h3>
+                            <div class="strategy-rating positive">Accumulate on Weakness</div>
+                        </div>
+                        <div class="strategy-content">
+                            <p class="strategy-text">
+                                For medium-term traders with higher risk tolerance, the current price levels near multi-year lows may present accumulation opportunities.
+                            </p>
+                            <div class="strategy-recommendation">
+                                <strong>Recommendation:</strong> Consider establishing partial positions at current levels with plans to add on either confirmation of support or positive catalyst announcements.
+                            </div>
+                            <div class="strategy-levels">
+                                <div class="level">
+                                    <span class="level-label">Initial Entry:</span>
+                                    <span class="level-value">Current levels ($0.030)</span>
+                                </div>
+                                <div class="level">
+                                    <span class="level-label">Secondary Entry:</span>
+                                    <span class="level-value">On break above $0.035</span>
+                                </div>
+                                <div class="level">
+                                    <span class="level-label">Stop Loss:</span>
+                                    <span class="level-value">$0.025 (-17%)</span>
+                                </div>
+                                <div class="level">
+                                    <span class="level-label">Target:</span>
+                                    <span class="level-value">$0.047 (+57%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <h3 class="strategy-title">Long-Term Investors (1+ years)</h3>
+                            <div class="strategy-rating positive">Strategic Accumulation</div>
+                        </div>
+                        <div class="strategy-content">
+                            <p class="strategy-text">
+                                Long-term investors focused on Imugene's clinical pipeline and fundamental value may view current technical weakness as an opportunity for strategic accumulation.
+                            </p>
+                            <div class="strategy-recommendation">
+                                <strong>Recommendation:</strong> Consider a dollar-cost averaging approach, allocating capital in tranches over several months to build a position at favorable average prices.
+                            </div>
+                            <div class="strategy-levels">
+                                <div class="level">
+                                    <span class="level-label">Accumulation Range:</span>
+                                    <span class="level-value">$0.025-$0.035</span>
+                                </div>
+                                <div class="level">
+                                    <span class="level-label">Position Sizing:</span>
+                                    <span class="level-value">25% increments</span>
+                                </div>
+                                <div class="level">
+                                    <span class="level-label">Long-term Target:</span>
+                                    <span class="level-value">$0.10+ based on clinical milestones</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Imugene (IMU.AX) Investment Analysis - April 2025</p>
+            <p><a href="https://github.com/Hodge2Franklin/Imugene" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="technical_analysis_enhancement/interactive_elements.js"></script>
+    <script src="technical_analysis_enhancement/advanced_data_analysis.js"></script>
+    <script src="technical_analysis_enhancement/scenario_builder_fix.js"></script>
+    <script src="technical_analysis_enhancement/predictive_modeling_fix.js"></script>
+    <script src="technical_analysis_enhancement/chart_fixes.js"></script>
+</body>
+</html>

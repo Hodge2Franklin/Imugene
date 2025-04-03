@@ -1,0 +1,217 @@
+{
+  "drugs": [
+    "Azer-cel (DLBCL)",
+    "HER-Vaxx (Gastric Cancer)",
+    "CF33/VAXINIA (Bile Tract)",
+    "CF33/VAXINIA (Solid Tumors)",
+    "PD1-Vaxx (NSCLC)",
+    "NeoPOLEM (MSI-high CRC)"
+  ],
+  "parameters": [
+    "Clinical Success Probability",
+    "Regulatory Approval Probability",
+    "Market Penetration",
+    "Pricing Power",
+    "Competition Impact",
+    "Development Costs",
+    "Time to Market"
+  ],
+  "conservative_scenario": {
+    "Clinical Success Probability": [
+      0.3,
+      0.2,
+      0.1,
+      0.1,
+      0.05,
+      0.15
+    ],
+    "Regulatory Approval Probability": [
+      0.6,
+      0.5,
+      0.4,
+      0.4,
+      0.3,
+      0.45
+    ],
+    "Market Penetration": [
+      0.15,
+      0.1,
+      0.05,
+      0.08,
+      0.05,
+      0.1
+    ],
+    "Pricing Power": [
+      0.4,
+      0.3,
+      0.25,
+      0.25,
+      0.2,
+      0.3
+    ],
+    "Competition Impact": [
+      0.3,
+      0.25,
+      0.4,
+      0.35,
+      0.2,
+      0.3
+    ],
+    "Development Costs": [
+      0.4,
+      0.45,
+      0.5,
+      0.5,
+      0.4,
+      0.45
+    ],
+    "Time to Market": [
+      0.3,
+      0.4,
+      0.25,
+      0.25,
+      0.2,
+      0.35
+    ]
+  },
+  "expected_scenario": {
+    "Clinical Success Probability": [
+      0.4,
+      0.3,
+      0.15,
+      0.15,
+      0.1,
+      0.25
+    ],
+    "Regulatory Approval Probability": [
+      0.7,
+      0.6,
+      0.5,
+      0.5,
+      0.4,
+      0.55
+    ],
+    "Market Penetration": [
+      0.25,
+      0.2,
+      0.1,
+      0.15,
+      0.1,
+      0.2
+    ],
+    "Pricing Power": [
+      0.6,
+      0.5,
+      0.4,
+      0.4,
+      0.35,
+      0.45
+    ],
+    "Competition Impact": [
+      0.5,
+      0.4,
+      0.6,
+      0.55,
+      0.35,
+      0.45
+    ],
+    "Development Costs": [
+      0.6,
+      0.65,
+      0.7,
+      0.7,
+      0.6,
+      0.65
+    ],
+    "Time to Market": [
+      0.5,
+      0.6,
+      0.45,
+      0.45,
+      0.4,
+      0.55
+    ]
+  },
+  "optimistic_scenario": {
+    "Clinical Success Probability": [
+      0.55,
+      0.45,
+      0.25,
+      0.25,
+      0.2,
+      0.4
+    ],
+    "Regulatory Approval Probability": [
+      0.85,
+      0.75,
+      0.65,
+      0.65,
+      0.55,
+      0.7
+    ],
+    "Market Penetration": [
+      0.4,
+      0.35,
+      0.2,
+      0.25,
+      0.2,
+      0.35
+    ],
+    "Pricing Power": [
+      0.8,
+      0.7,
+      0.6,
+      0.6,
+      0.55,
+      0.65
+    ],
+    "Competition Impact": [
+      0.7,
+      0.6,
+      0.8,
+      0.75,
+      0.55,
+      0.65
+    ],
+    "Development Costs": [
+      0.8,
+      0.85,
+      0.9,
+      0.9,
+      0.8,
+      0.85
+    ],
+    "Time to Market": [
+      0.7,
+      0.8,
+      0.65,
+      0.65,
+      0.6,
+      0.75
+    ]
+  },
+  "npv_conservative": [
+    40,
+    20,
+    6,
+    6,
+    4,
+    12
+  ],
+  "npv_expected": [
+    63,
+    33,
+    11,
+    11,
+    8,
+    19
+  ],
+  "npv_optimistic": [
+    95,
+    55,
+    25,
+    28,
+    18,
+    35
+  ]
+}

@@ -1,99 +1,54 @@
-# Imugene Analysis Project - README
+# Imugene Website Project
 
 ## Overview
+This repository contains the Imugene analysis website, which provides comprehensive information and interactive visualizations for Imugene (ASX: IMU) stock analysis.
 
-This repository contains a comprehensive investment analysis of Imugene Limited (ASX: IMU), an Australian clinical-stage immuno-oncology company. The analysis covers the company's financial position, clinical pipeline, valuation models, and potential business scenarios to provide actionable investment recommendations.
+## Latest Deployment
+The most recent version of the website is deployed at:
+https://qftnazcb.manus.space/
 
 ## Repository Structure
+- **Root Directory**: Contains all HTML pages and main project files
+- **css/**: Contains all styling files including unified-style.css
+- **js/**: Contains JavaScript files for interactive functionality
+- **documentation/**: Contains project documentation and update history
+- **graphs/output/**: Contains visualization JavaScript files
+- **technical_analysis_enhancement/**: Contains enhanced technical analysis files
+- **backups/**: Contains project backups for disaster recovery
+
+## For Non-Programmers
+This repository is organized to be accessible for non-programmers:
+
+- **Getting Started**: Begin by reviewing the CONTINUITY_GUIDE.md file for complete instructions
+- **Documentation**: All documentation is written in plain language in the documentation/ directory
+- **Backups**: Previous versions are stored in the backups/ directory for disaster recovery
+- **Project State**: Current status is documented in documentation/project_state.md
+
+## Key Files
+- **CONTINUITY_GUIDE.md**: Complete instructions for maintaining continuity between sessions
+- **documentation/project_state.md**: Current project status and history
+- **documentation/update_documentation.sh**: Script to update documentation
+
+## Interactive Visualizations
+The website includes several interactive visualizations:
+
+1. **Interactive Price Charts**
+2. **Scenario Builder**
+3. **Predictive Modeling**
+4. **Market Context Visualization**
+5. **Institutional Ownership Breakdown**
+6. **Analyst Ratings & Price Targets**
+7. **Clinical Trial Timeline**
+8. **Success Probability Calculator**
+9. **Advanced Technical Chart**
+10. **Volume Profile Analysis**
+11. **Competitor Comparison Tool**
+
+## Maintaining Continuity
+To ensure work is never lost between conversation threads, always reference the project documentation:
 
 ```
-imugene_analysis/
-├── charts/                           # Visualizations and charts
-├── original_files/                   # Original uploaded files
-├── probability_matrix/               # Probability analysis for different scenarios
-├── valuation_models/                 # Financial valuation models
-├── azer_cel_and_key_presentations_analysis.md
-├── business_scenario_analysis.md
-├── clinical_trials_data.md
-├── comprehensive_investment_analysis.md
-├── csl_growth_trajectory_analysis.md
-├── fda_fast_track_analysis.md
-├── final_report.md                   # Final investment report
-├── imu_5year_price_history.json      # Historical price data
-├── imugene_cash_position_update.md
-├── investment_recommendations.md     # Detailed investment recommendations
-├── paul_hopper_deals_analysis.md
-├── share_price_and_capital_raises_analysis.md
-├── todo.md                           # Project tracking document
-├── upcoming_catalysts_analysis.md
-├── us_investor_sentiment_analysis.md
-└── README.md                         # This file
+Please review the project state documentation at /home/ubuntu/Imugene/documentation/project_state.md to continue work on the Imugene analysis website.
 ```
 
-## Key Documents
-
-1. **final_report.md**: Concise final investment report with key findings and recommendations
-2. **investment_recommendations.md**: Detailed investment recommendations for different investor profiles
-3. **comprehensive_investment_analysis.md**: In-depth analysis integrating all research findings
-4. **imugene_cash_position_update.md**: Analysis of current cash position and burn rate
-5. **business_scenario_analysis.md**: Evaluation of potential business scenarios (acquisition vs. licensing)
-
-## Analysis Components
-
-### Financial Analysis
-- Current cash position and burn rate
-- Historical capital raises and dilution
-- Pending financing options
-
-### Clinical Pipeline Analysis
-- Overview of five clinical-stage programs
-- Development timelines and milestones
-- Regulatory designations and implications
-
-### Valuation Analysis
-- Risk-adjusted NPV for each drug candidate
-- Comparative valuation against peer companies
-- Scenario-based valuation models
-
-### Business Scenario Analysis
-- Full acquisition scenario
-- Individual asset licensing model ("dividend farm")
-- Hybrid model approach
-
-### Catalyst Analysis
-- Upcoming clinical trial readouts
-- Conference presentations
-- Regulatory milestones
-
-## Validation Notes
-
-All analyses have been validated for accuracy and consistency. Key validation points:
-
-1. **Financial Data**: Cash position and burn rate calculations verified against latest financial reports
-2. **Clinical Pipeline**: Trial status and results cross-checked with company announcements and presentations
-3. **Valuation Models**: Assumptions benchmarked against industry standards and comparable transactions
-4. **Business Scenarios**: Probability assessments validated against historical precedents and current market conditions
-
-## Usage Guide
-
-1. Start with **final_report.md** for a concise overview of findings and recommendations
-2. Review **investment_recommendations.md** for detailed guidance based on investor profile
-3. Explore specific analysis components for in-depth understanding of particular aspects
-4. Refer to **charts/** directory for visual representations of key data points
-
-## Data Sources
-
-- Company financial reports and presentations
-- ASX announcements
-- Clinical trial databases
-- Industry reports and analyst coverage
-- Historical stock price data
-- Comparable company analyses
-
-## Maintenance
-
-This analysis is based on data available as of April 2025. Key metrics, particularly cash position and clinical trial progress, should be updated regularly as new information becomes available.
-
-## Disclaimer
-
-This analysis is provided for informational purposes only and does not constitute investment advice. All investments involve risk, and past performance is not indicative of future results. Investors should conduct their own research and consult with financial advisors before making investment decisions.
+For more detailed instructions, see CONTINUITY_GUIDE.md
