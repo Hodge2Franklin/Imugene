@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imugene Clinical Trial Timeline</title>
+    
+    <!-- Unified Styles -->
+    <link rel="stylesheet" href="css/unified-style.css">
+    <link rel="stylesheet" href="css/clinical_trial_timeline.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    
+    <!-- jQuery for DOM manipulation -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Imugene Analysis</h1>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="visualizations.html">Visualizations</a></li>
+                <li><a href="technical_analysis.html">Technical Analysis</a></li>
+                <li><a href="interactive_visualizations.html">Interactive Tools</a></li>
+                <li><a href="clinical_trial_timeline.html" class="active">Clinical Trials</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="page-header">
+            <h1>Imugene Clinical Trial Timeline</h1>
+            <p>Comprehensive visualization of Imugene's clinical trial portfolio with interactive projections and educational resources</p>
+        </section>
+
+        <!-- Clinical Trial Timeline Visualization -->
+        <section id="clinical-trial-timeline-container" class="content-section">
+            <div class="timeline-header">
+                <h2>Clinical Trial Timeline <span class="educational-icon" data-term="clinical-trial">i</span></h2>
+                <p>Interactive Gantt chart showing the timeline for Imugene's clinical trials with detailed information and future projections</p>
+            </div>
+            
+            <div class="timeline-controls">
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <label for="phase-filter">Phase <span class="educational-icon" data-term="trial-phase">i</span></label>
+                        <select id="phase-filter">
+                            <option value="all">All Phases</option>
+                            <option value="1">Phase 1</option>
+                            <option value="1/2">Phase 1/2</option>
+                            <option value="2">Phase 2</option>
+                            <option value="2/3">Phase 2/3</option>
+                            <option value="3">Phase 3</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="indication-filter">Indication <span class="educational-icon" data-term="indication">i</span></label>
+                        <select id="indication-filter">
+                            <option value="all">All Indications</option>
+                            <option value="solid-tumors">Solid Tumors</option>
+                            <option value="gastric-cancer">Gastric Cancer</option>
+                            <option value="breast-cancer">Breast Cancer</option>
+                            <option value="lung-cancer">Lung Cancer</option>
+                            <option value="colorectal-cancer">Colorectal Cancer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="drug-filter">Drug Candidate <span class="educational-icon" data-term="drug-candidate">i</span></label>
+                        <select id="drug-filter">
+                            <option value="all">All Candidates</option>
+                            <option value="cf33">CF33 (Oncolytic Virus)</option>
+                            <option value="her-vaxx">HER-Vaxx</option>
+                            <option value="pd1-vaxx">PD1-Vaxx</option>
+                            <option value="vaxinia">Vaxinia</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <div class="view-options">
+                        <label>View:</label>
+                        <div class="checkbox-group">
+                            <input type="radio" id="view-gantt" name="view-type" value="gantt" checked>
+                            <label for="view-gantt">Gantt</label>
+                            
+                            <input type="radio" id="view-timeline" name="view-type" value="timeline">
+                            <label for="view-timeline">Timeline</label>
+                            
+                            <input type="radio" id="view-table" name="view-type" value="table">
+                            <label for="view-table">Table</label>
+                        </div>
+                    </div>
+                    
+                    <div class="display-options">
+                        <label>Display:</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="show-milestones" checked>
+                            <label for="show-milestones">Milestones <span class="educational-icon" data-term="milestone">i</span></label>
+                            
+                            <input type="checkbox" id="show-projections">
+                            <label for="show-projections">Projections <span class="educational-icon" data-term="projection">i</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visualization-container">
+                <div id="gantt-chart-container" class="chart-container">
+                    <!-- Gantt chart will be rendered here -->
+                    <canvas id="gantt-chart"></canvas>
+                    <div class="loading-indicator">Loading clinical trial data...</div>
+                </div>
+            </div>
+            
+            <div class="projection-controls">
+                <h3>Future Trial Projections <span class="educational-icon" data-term="trial-projection">i</span></h3>
+                
+                <div class="projection-options">
+                    <div class="projection-option">
+                        <label for="projection-scenario">Scenario:</label>
+                        <select id="projection-scenario">
+                            <option value="base">Base Case</option>
+                            <option value="optimistic">Optimistic</option>
+                            <option value="pessimistic">Pessimistic</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                    
+                    <div class="projection-option">
+                        <label for="projection-timeframe">Timeframe:</label>
+                        <select id="projection-timeframe">
+                            <option value="1">1 Year</option>
+                            <option value="2">2 Years</option>
+                            <option value="3" selected>3 Years</option>
+                            <option value="5">5 Years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="projection-actions">
+                        <button id="apply-projections" class="action-button">Apply</button>
+                        <button id="reset-projections" class="action-button secondary">Reset</button>
+                    </div>
+                </div>
+                
+                <div id="custom-parameters" class="parameter-container" style="display: none;">
+                    <h4>Custom Parameters <span class="educational-icon" data-term="trial-parameters">i</span></h4>
+                    
+                    <div class="parameter-grid">
+                        <div class="parameter-group">
+                            <label for="success-probability">Success Probability <span class="educational-icon" data-term="success-probability">i</span></label>
+                            <input type="range" id="success-probability" min="0" max="100" value="30">
+                            <span class="parameter-value">30%</span>
+                        </div>
+                        
+                        <div class="parameter-group">
+                            <label for="trial-duration">Trial Duration <span class="educational-icon" data-term="trial-duration">i</span></label>
+                            <input type="range" id="trial-duration" min="50" max="150" value="100">
+                            <span class="parameter-value">100%</span>
+                        </div>
+                        
+                        <div class="parameter-group">
+                            <label for="trial-cost">Trial Cost <span class="educational-icon" data-term="trial-cost">i</span></label>
+                            <input type="range" id="trial-cost" min="50" max="200" value="100">
+                            <span class="parameter-value">100%</span>
+                        </div>
+                        
+                        <div class="parameter-group">
+                            <label for="market-potential">Market Potential <span class="educational-icon" data-term="market-potential">i</span></label>
+                            <input type="range" id="market-potential" min="50" max="200" value="100">
+                            <span class="parameter-value">100%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="projection-results" class="results-container" style="display: none;">
+                    <!-- Projection results will be displayed here -->
+                </div>
+            </div>
+            
+            <div class="detail-panel">
+                <div class="panel-header">
+                    <h3 id="detail-title">Trial Details</h3>
+                    <button class="close-panel">&times;</button>
+                </div>
+                <div class="panel-content">
+                    <!-- Trial details will be displayed here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Educational Tooltip Container -->
+        <div class="educational-tooltip" style="display: none;">
+            <div class="tooltip-content"></div>
+            <div class="tooltip-footer">
+                <span class="click-for-more">Click for more information</span>
+            </div>
+        </div>
+        
+        <!-- Educational Modal -->
+        <div class="educational-modal" style="display: none;">
+            <div class="educational-modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title"></h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!-- Educational content will be displayed here -->
+                </div>
+                <div class="modal-footer">
+                    <div class="related-terms">
+                        <h4>Related Terms:</h4>
+                        <div class="related-terms-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Imugene Analysis. This is not financial advice. Always do your own research.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/chart_dependency_manager.js"></script>
+    <script src="graphs/output/enhanced_clinical_trial_timeline.js"></script>
+    <script src="js/future_trial_projections.js"></script>
+    <script src="js/educational_tooltips.js"></script>
+    <script src="js/responsive_timeline.js"></script>
+    <script src="js/container_naming_standardizer.js"></script>
+    <script src="js/visualization_verification.js"></script>
+    
+    <!-- Test script (only loaded in test mode) -->
+    <script>
+        // Check if we're in test mode
+        const urlParams = new URLSearchParams(window.location.search);
+        const testMode = urlParams.get('test') === 'true';
+        
+        if (testMode) {
+            // Dynamically load test script
+            const script = document.createElement('script');
+            script.src = 'js/clinical_trial_timeline_test.js';
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+/* Enhanced Clinical Trial Timeline Visualization Styles */
+.enhanced-clinical-trial-timeline {
+    font-family: 'Roboto', Arial, sans-serif;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.timeline-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.timeline-header h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.timeline-header p {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Controls Section */
+.timeline-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filter-group, .option-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-group label, .option-group label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 14px;
+}
+
+.filter-group select {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin: 0;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    font-size: 13px;
+}
+
+/* Visualization Container */
+.visualization-container {
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cost-container {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Detail Panel */
+.detail-panel {
+    position: fixed;
+    top: 50%;
+    right: -350px;
+    transform: translateY(-50%);
+    width: 320px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.detail-panel.active {
+    right: 0;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.panel-header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #7f8c8d;
+}
+
+.panel-content h4 {
+    margin: 15px 0 10px;
+    font-size: 16px;
+    color: #34495e;
+}
+
+.panel-content p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.view-details-btn {
+    display: block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.view-details-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Educational Tooltip */
+.educational-tooltip {
+    position: absolute;
+    max-width: 300px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    z-index: 1100;
+    font-size: 13px;
+}
+
+.educational-tooltip h4 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    color: #2c3e50;
+}
+
+.educational-tooltip p {
+    margin: 5px 0;
+    color: #34495e;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 50px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #7f8c8d;
+}
+
+/* Tabs */
+.modal-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-btn {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #7f8c8d;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background-color: white;
+    color: #3498db;
+    border-color: #eee;
+    border-bottom: 2px solid #3498db;
+    font-weight: 600;
+}
+
+.tab-content {
+    padding: 15px 0;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Grid Layouts */
+.overview-grid, .financials-grid, .projections-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.overview-section, .financials-section, .projections-section {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+/* Tables */
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.detail-table th, .detail-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.detail-table th {
+    font-weight: 600;
+    color: #34495e;
+    background-color: #f8f9fa;
+}
+
+.detail-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.detail-table tr.completed {
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+.detail-table tr.pending {
+    background-color: rgba(241, 196, 15, 0.1);
+}
+
+.detail-table tr.projection {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Educational Section */
+.educational-section {
+    margin-top: 15px;
+}
+
+.term-definition {
+    margin-bottom: 10px;
+}
+
+.term {
+    font-weight: 600;
+    color: #34495e;
+}
+
+.definition {
+    color: #7f8c8d;
+}
+
+/* Timeline View */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #3498db;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: white;
+    border: 4px solid #3498db;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -10px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.timeline-header h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.timeline-details p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.timeline-milestones {
+    margin-top: 15px;
+}
+
+.timeline-milestones h5 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #34495e;
+}
+
+.timeline-milestones ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-milestones li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.timeline-milestones li.completed .milestone-status {
+    color: #2ecc71;
+}
+
+.timeline-milestones li.pending .milestone-status {
+    color: #f1c40f;
+}
+
+.timeline-projections {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 6px;
+}
+
+.timeline-projections h5 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #34495e;
+}
+
+.projection-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Milestone Table */
+.milestone-table-container {
+    overflow-x: auto;
+}
+
+.milestone-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.milestone-table th, .milestone-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.milestone-table th {
+    background-color: #f8f9fa;
+    color: #34495e;
+    font-weight: 600;
+}
+
+.milestone-table tr {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.milestone-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.milestone-table tr.completed {
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+.milestone-table tr.pending {
+    background-color: rgba(241, 196, 15, 0.1);
+}
+
+.milestone-table tr.projection {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.phase-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.completed-status {
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+.pending-status {
+    color: #f1c40f;
+    font-weight: 600;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.details-list li {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .timeline-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .overview-grid, .financials-grid, .projections-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-item::after {
+        left: 21px;
+        right: auto;
+    }
+    
+    .timeline-item:nth-child(even)::after {
+        left: 21px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+}
